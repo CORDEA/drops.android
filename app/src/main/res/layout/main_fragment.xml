@@ -6,7 +6,7 @@
 
         <variable
             name="viewModel"
-            type="jp.cordea.app.MainViewModel" />
+            type="jp.cordea.drops.MainViewModel" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout

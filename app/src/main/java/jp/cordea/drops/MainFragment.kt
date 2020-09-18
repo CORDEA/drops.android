@@ -1,11 +1,11 @@
-package jp.cordea.app
+package jp.cordea.drops
 
 import android.os.Bundle
 import android.view.View
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import dagger.hilt.android.AndroidEntryPoint
-import jp.cordea.app.databinding.MainFragmentBinding
+import jp.cordea.drops.databinding.MainFragmentBinding
 
 @AndroidEntryPoint
 class MainFragment : Fragment(R.layout.main_fragment) {

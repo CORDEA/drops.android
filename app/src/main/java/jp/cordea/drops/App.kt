@@ -1,4 +1,4 @@
-package jp.cordea.app
+package jp.cordea.drops
 
 import android.app.Application
 import dagger.hilt.android.HiltAndroidApp
