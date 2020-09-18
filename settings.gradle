@@ -1,3 +1,4 @@
+include ':ui:account'
 include ':ui:main'
 include ':app'
 rootProject.name = "App"
