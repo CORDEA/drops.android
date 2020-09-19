@@ -6,11 +6,11 @@
 
         <variable
             name="viewModel"
-            type="jp.cordea.drops.MainViewModel" />
+            type="jp.cordea.drops.ui.main.MainViewModel" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:context=".MainFragment" />
+        tools:context=".ui.main.MainFragment" />
 </layout>

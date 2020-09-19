@@ -6,6 +6,6 @@
 
     <fragment
         android:id="@+id/mainFragment"
-        android:name="jp.cordea.drops.MainFragment"
+        android:name="jp.cordea.drops.ui.main.MainFragment"
         android:label="MainFragment" />
 </navigation>
