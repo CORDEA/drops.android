@@ -39,7 +39,11 @@ android {
 }
 
 dependencies {
-    implementation fileTree(dir: "libs", include: ["*.jar"])
+    implementation project(":ui:main")
+    implementation project(":ui:login")
+    implementation project(":ui:history")
+    implementation project(":ui:account")
+
     implementation Deps.stdlib
     implementation Deps.coreKtx
     implementation Deps.appcompat
