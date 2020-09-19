@@ -25,6 +25,8 @@ android {
 }
 
 dependencies {
+    implementation project(":ui:shared")
+
     implementation Deps.stdlib
     implementation Deps.coreKtx
     implementation Deps.appcompat

@@ -39,6 +39,7 @@ android {
 }
 
 dependencies {
+    implementation project(":ui:shared")
     implementation project(":ui:main")
     implementation project(":ui:login")
     implementation project(":ui:history")
