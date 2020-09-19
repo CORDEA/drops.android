@@ -1,3 +1,4 @@
+include ':ui:history'
 include ':ui:account'
 include ':ui:main'
 include ':app'
