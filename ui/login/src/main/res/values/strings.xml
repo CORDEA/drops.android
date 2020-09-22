@@ -5,4 +5,8 @@
     <string name="log_in_title">Welcome back!</string>
     <string name="log_in_code">Authentication code</string>
     <string name="log_in_button">Log in</string>
+    <string name="sign_up_title">Welcome!</string>
+    <string name="sign_up_body">Please enter the code sent to your email to complete the sign-up</string>
+    <string name="sign_up_code">Authentication code</string>
+    <string name="sign_up_button">Sign up</string>
 </resources>
