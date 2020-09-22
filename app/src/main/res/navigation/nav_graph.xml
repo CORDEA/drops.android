@@ -10,6 +10,6 @@
         android:label="MainFragment" />
     <fragment
         android:id="@+id/loginFragment"
-        android:name="jp.cordea.drops.ui.login.LoginFragment"
+        android:name="jp.cordea.drops.ui.login.WelcomeFragment"
         android:label="LoginFragment" />
 </navigation>

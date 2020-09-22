@@ -7,8 +7,8 @@ import androidx.fragment.app.viewModels
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
-class LoginFragment : Fragment(R.layout.login_fragment) {
-    private val viewModel: LoginViewModel by viewModels()
+class WelcomeFragment : Fragment(R.layout.welcome_fragment) {
+    private val viewModel: WelcomeViewModel by viewModels()
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
