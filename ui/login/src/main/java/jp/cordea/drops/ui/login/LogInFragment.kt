@@ -5,6 +5,6 @@ import androidx.fragment.app.viewModels
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
-class LoginFragment : Fragment(R.layout.login_fragment) {
+class LogInFragment : Fragment(R.layout.log_in_fragment) {
     private val viewModel: WelcomeViewModel by viewModels()
 }
