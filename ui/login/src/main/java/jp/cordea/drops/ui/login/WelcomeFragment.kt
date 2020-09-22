@@ -14,6 +14,7 @@ class WelcomeFragment : Fragment(R.layout.welcome_fragment) {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         val binding = WelcomeFragmentBinding.bind(view)
+        binding.lifecycleOwner = viewLifecycleOwner
         binding.viewModel = viewModel
     }
 }
