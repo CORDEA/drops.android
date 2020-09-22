@@ -16,13 +16,49 @@
         android:background="@color/colorPrimary"
         app:layoutDescription="@xml/main_fragment_scene"
         tools:context=".ui.main.MainFragment"
-        tools:showPaths="true">
+        tools:showPaths="true"
+        tools:theme="@style/AppTheme">
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:id="@+id/navigation"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content">
 
+            <ImageView
+                android:id="@+id/navigation_icon"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="?attr/selectableItemBackgroundBorderless"
+                android:clickable="true"
+                android:focusable="true"
+                android:padding="16dp"
+                android:src="@drawable/ic_baseline_menu_24"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:src="@drawable/img_bar_logo"
+                app:layout_constraintBottom_toBottomOf="@id/navigation_icon"
+                app:layout_constraintEnd_toStartOf="@id/filter_icon"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toEndOf="@id/navigation_icon"
+                app:layout_constraintTop_toTopOf="@id/navigation_icon" />
+
+
+            <ImageView
+                android:id="@+id/filter_icon"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="?attr/selectableItemBackgroundBorderless"
+                android:clickable="true"
+                android:focusable="true"
+                android:padding="16dp"
+                android:src="@drawable/ic_baseline_filter_list_24"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
         </androidx.constraintlayout.widget.ConstraintLayout>
 
         <androidx.constraintlayout.widget.ConstraintLayout
@@ -30,6 +66,5 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:background="@drawable/front_background" />
-
     </androidx.constraintlayout.motion.widget.MotionLayout>
 </layout>
