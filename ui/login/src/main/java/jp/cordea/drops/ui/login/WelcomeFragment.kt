@@ -4,9 +4,12 @@ import android.os.Bundle
 import android.view.View
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
+import androidx.lifecycle.lifecycleScope
 import dagger.hilt.android.AndroidEntryPoint
 import jp.cordea.drops.ui.Navigator
+import jp.cordea.drops.ui.login.WelcomeViewModel.Event
 import jp.cordea.drops.ui.login.databinding.WelcomeFragmentBinding
+import kotlinx.coroutines.launch
 import javax.inject.Inject
 
 @AndroidEntryPoint
@@ -21,5 +24,16 @@ class WelcomeFragment : Fragment(R.layout.welcome_fragment) {
         val binding = WelcomeFragmentBinding.bind(view)
         binding.lifecycleOwner = viewLifecycleOwner
         binding.viewModel = viewModel
+
+        lifecycleScope.launch {
+            for (event in viewModel.onEvent) {
+                when (event) {
+                    is Event.NavigateToLogIn ->
+                        navigator.navigateToLogIn(event.emailAddress)
+                    is Event.NavigateToSignUp ->
+                        navigator.navigateToSignUp(event.emailAddress)
+                }
+            }
+        }
     }
 }
