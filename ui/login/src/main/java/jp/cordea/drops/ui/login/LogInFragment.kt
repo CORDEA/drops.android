@@ -5,6 +5,7 @@ import android.view.View
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.lifecycleScope
+import com.google.android.material.transition.MaterialSharedAxis
 import dagger.hilt.android.AndroidEntryPoint
 import jp.cordea.drops.ui.login.LogInViewModel.Event
 import jp.cordea.drops.ui.login.databinding.LogInFragmentBinding
@@ -17,6 +18,16 @@ class LogInFragment : Fragment(R.layout.log_in_fragment) {
     lateinit var navigator: LogInNavigator
 
     private val viewModel: LogInViewModel by viewModels()
+
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        enterTransition = MaterialSharedAxis(MaterialSharedAxis.X, true).apply {
+            excludeTarget(R.id.button, true)
+        }
+        returnTransition = MaterialSharedAxis(MaterialSharedAxis.X, false).apply {
+            excludeTarget(R.id.button, true)
+        }
+    }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)

@@ -5,6 +5,7 @@ import android.view.View
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.lifecycleScope
+import com.google.android.material.transition.MaterialSharedAxis
 import dagger.hilt.android.AndroidEntryPoint
 import jp.cordea.drops.ui.login.SignUpViewModel.Event
 import jp.cordea.drops.ui.login.databinding.SignUpFragmentBinding
@@ -17,6 +18,16 @@ class SignUpFragment : Fragment(R.layout.sign_up_fragment) {
     lateinit var navigator: SignUpNavigator
 
     private val viewModel: SignUpViewModel by viewModels()
+
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        enterTransition = MaterialSharedAxis(MaterialSharedAxis.X, true).apply {
+            excludeTarget(R.id.button, true)
+        }
+        returnTransition = MaterialSharedAxis(MaterialSharedAxis.X, false).apply {
+            excludeTarget(R.id.button, true)
+        }
+    }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
