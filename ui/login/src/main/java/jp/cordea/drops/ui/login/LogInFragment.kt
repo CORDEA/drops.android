@@ -10,8 +10,8 @@ import javax.inject.Inject
 
 @AndroidEntryPoint
 class LogInFragment : Fragment(R.layout.log_in_fragment) {
-//    @Inject
-//    lateinit var navigator: Navigator
+    @Inject
+    lateinit var navigator: LogInNavigator
 
     private val viewModel: LogInViewModel by viewModels()
 

@@ -10,8 +10,8 @@ import javax.inject.Inject
 
 @AndroidEntryPoint
 class SignUpFragment : Fragment(R.layout.sign_up_fragment) {
-//    @Inject
-//    lateinit var navigator: Navigator
+    @Inject
+    lateinit var navigator: SignUpNavigator
 
     private val viewModel: SignUpViewModel by viewModels()
 

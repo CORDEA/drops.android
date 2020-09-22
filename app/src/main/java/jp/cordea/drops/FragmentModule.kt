@@ -6,8 +6,7 @@ import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
 import dagger.hilt.android.components.FragmentComponent
-import jp.cordea.drops.ui.login.WelcomeFragmentDirections
-import jp.cordea.drops.ui.login.WelcomeNavigator
+import jp.cordea.drops.ui.login.*
 
 @Module
 @InstallIn(FragmentComponent::class)
@@ -29,6 +28,30 @@ class FragmentModule {
                 .navigate(
                     WelcomeFragmentDirections
                         .actionWelcomeFragmentToSignUpFragment(emailAddress)
+                )
+        }
+    }
+
+    @Provides
+    fun provideLogInNavigator(fragment: Fragment): LogInNavigator = object : LogInNavigator {
+        override fun navigateToMain() {
+            fragment
+                .findNavController()
+                .navigate(
+                    LogInFragmentDirections
+                        .actionLogInFragmentToMainFragment()
+                )
+        }
+    }
+
+    @Provides
+    fun provideSignUpNavigator(fragment: Fragment): SignUpNavigator = object : SignUpNavigator {
+        override fun navigateToMain() {
+            fragment
+                .findNavController()
+                .navigate(
+                    SignUpFragmentDirections
+                        .actionSignUpFragmentToMainFragment()
                 )
         }
     }
