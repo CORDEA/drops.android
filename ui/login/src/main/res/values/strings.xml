@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="welcome_username">Username</string>
-    <string name="welcome_button">Login</string>
+    <string name="welcome_button">Knock</string>
     <string name="log_in_title">Welcome back!</string>
     <string name="log_in_code">Authentication code</string>
     <string name="log_in_button">Log in</string>
