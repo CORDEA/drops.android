@@ -30,11 +30,11 @@
             app:layout_constraintVertical_bias="0.3" />
 
         <com.google.android.material.textfield.TextInputLayout
-            android:id="@+id/username"
+            android:id="@+id/email"
             style="@style/Drops.Textfield"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:hint="@string/welcome_username"
+            android:hint="@string/welcome_email"
             app:layout_constraintBottom_toTopOf="@id/button"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
