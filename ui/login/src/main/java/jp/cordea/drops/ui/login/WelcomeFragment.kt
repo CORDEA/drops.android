@@ -6,7 +6,6 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.lifecycleScope
 import dagger.hilt.android.AndroidEntryPoint
-import jp.cordea.drops.ui.Navigator
 import jp.cordea.drops.ui.login.WelcomeViewModel.Event
 import jp.cordea.drops.ui.login.databinding.WelcomeFragmentBinding
 import kotlinx.coroutines.launch
@@ -15,7 +14,7 @@ import javax.inject.Inject
 @AndroidEntryPoint
 class WelcomeFragment : Fragment(R.layout.welcome_fragment) {
     @Inject
-    lateinit var navigator: Navigator
+    lateinit var navigator: WelcomeNavigator
 
     private val viewModel: WelcomeViewModel by viewModels()
 

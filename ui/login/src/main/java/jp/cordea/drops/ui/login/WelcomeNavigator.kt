@@ -1,6 +1,6 @@
-package jp.cordea.drops.ui
+package jp.cordea.drops.ui.login
 
-interface Navigator {
+interface WelcomeNavigator {
     fun navigateToLogIn(emailAddress: String)
     fun navigateToSignUp(emailAddress: String)
 }
