@@ -3,6 +3,7 @@ object Versions {
     val minSdkVersion = 26
 
     val kotlin = "1.3.72"
+    val navigation = "2.3.0"
 }
 
 object Deps {
@@ -12,8 +13,10 @@ object Deps {
     val material = "com.google.android.material:material:1.2.1"
     val constraintlayout = "androidx.constraintlayout:constraintlayout:2.0.1"
 
-    val navigationFragmentKtx = "androidx.navigation:navigation-fragment-ktx:2.3.0"
-    val navigationUiKtx = "androidx.navigation:navigation-ui-ktx:2.3.0"
+    val navigationSafeArgsGradlePlugin =
+        "androidx.navigation:navigation-safe-args-gradle-plugin:${Versions.navigation}"
+    val navigationFragmentKtx = "androidx.navigation:navigation-fragment-ktx:${Versions.navigation}"
+    val navigationUiKtx = "androidx.navigation:navigation-ui-ktx:${Versions.navigation}"
 
     val hiltLifecycleViewModel = "androidx.hilt:hilt-lifecycle-viewmodel:1.0.0-SNAPSHOT"
     val hiltCompiler = "androidx.hilt:hilt-compiler:1.0.0-SNAPSHOT"
