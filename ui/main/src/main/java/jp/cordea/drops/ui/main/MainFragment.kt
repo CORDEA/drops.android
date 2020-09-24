@@ -8,6 +8,7 @@ import androidx.appcompat.view.ContextThemeWrapper
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.recyclerview.widget.GridLayoutManager
+import androidx.recyclerview.widget.RecyclerView
 import com.xwray.groupie.GroupAdapter
 import com.xwray.groupie.GroupieViewHolder
 import dagger.hilt.android.AndroidEntryPoint
@@ -37,6 +38,11 @@ class MainFragment : Fragment() {
         val adapter = GroupAdapter<GroupieViewHolder>()
         binding.recyclerView.adapter = adapter
         binding.recyclerView.layoutManager =
-            GridLayoutManager(requireContext(), 3, GridLayoutManager.HORIZONTAL, false)
+            object : GridLayoutManager(requireContext(), 3, HORIZONTAL, false) {
+                override fun checkLayoutParams(lp: RecyclerView.LayoutParams?): Boolean {
+                    lp?.width = (width * 0.5f).toInt()
+                    return true
+                }
+            }
     }
 }
