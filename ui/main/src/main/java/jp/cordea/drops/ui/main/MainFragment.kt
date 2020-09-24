@@ -7,6 +7,9 @@ import android.view.ViewGroup
 import androidx.appcompat.view.ContextThemeWrapper
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
+import androidx.recyclerview.widget.GridLayoutManager
+import com.xwray.groupie.GroupAdapter
+import com.xwray.groupie.GroupieViewHolder
 import dagger.hilt.android.AndroidEntryPoint
 import jp.cordea.drops.ui.main.databinding.MainFragmentBinding
 
@@ -30,5 +33,10 @@ class MainFragment : Fragment() {
         val binding = MainFragmentBinding.bind(view)
         binding.lifecycleOwner = viewLifecycleOwner
         binding.viewModel = viewModel
+
+        val adapter = GroupAdapter<GroupieViewHolder>()
+        binding.recyclerView.adapter = adapter
+        binding.recyclerView.layoutManager =
+            GridLayoutManager(requireContext(), 3, GridLayoutManager.HORIZONTAL, false)
     }
 }
