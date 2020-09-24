@@ -43,4 +43,7 @@ dependencies {
 
     implementation Deps.kotlinxCoroutinesCore
     implementation Deps.kotlinxCoroutinesAndroid
+
+    implementation Deps.groupie
+    implementation Deps.groupieViewbinding
 }

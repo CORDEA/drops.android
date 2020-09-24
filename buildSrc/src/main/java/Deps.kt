@@ -28,4 +28,7 @@ object Deps {
 
     val kotlinxCoroutinesCore = "org.jetbrains.kotlinx:kotlinx-coroutines-core:1.3.7"
     val kotlinxCoroutinesAndroid = "org.jetbrains.kotlinx:kotlinx-coroutines-android:1.3.7"
+
+    val groupie = "com.github.lisawray.groupie:groupie:2.8.1"
+    val groupieViewbinding = "com.github.lisawray.groupie:groupie-viewbinding:2.8.1"
 }
