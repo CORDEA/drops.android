@@ -11,4 +11,13 @@
         <item name="android:textColor">@color/textColor</item>
         <item name="rippleColor">@color/colorPrimaryDark</item>
     </style>
+
+    <style name="Main.Item" />
+
+    <style name="Main.Item.Image" />
+
+    <style name="Main.Item.Image.Shape">
+        <item name="cornerFamily">rounded</item>
+        <item name="cornerSize">50%</item>
+    </style>
 </resources>
