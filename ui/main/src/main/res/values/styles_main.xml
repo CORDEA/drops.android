@@ -18,6 +18,6 @@
 
     <style name="Main.Item.Image.Shape">
         <item name="cornerFamily">rounded</item>
-        <item name="cornerSize">50%</item>
+        <item name="cornerSize">18%</item>
     </style>
 </resources>
