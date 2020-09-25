@@ -37,6 +37,7 @@ class MainFragment : Fragment() {
 
         val adapter = GroupAdapter<GroupieViewHolder>()
         binding.recyclerView.adapter = adapter
+        binding.recyclerView.addItemDecoration(MainItemDecoration(requireContext()))
         binding.recyclerView.layoutManager =
             object : GridLayoutManager(requireContext(), 3, HORIZONTAL, false) {
                 override fun checkLayoutParams(lp: RecyclerView.LayoutParams?): Boolean {
