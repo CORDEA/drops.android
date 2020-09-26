@@ -31,6 +31,7 @@ class MainFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         val binding = MainFragmentBinding.bind(view)
+        binding.toolbar.setNavigationView(R.layout.main_navigation_menu)
         binding.lifecycleOwner = viewLifecycleOwner
         binding.viewModel = viewModel
 

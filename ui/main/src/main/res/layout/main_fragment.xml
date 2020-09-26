@@ -10,82 +10,26 @@
             type="jp.cordea.drops.ui.main.MainViewModel" />
     </data>
 
-    <androidx.constraintlayout.motion.widget.MotionLayout
+    <androidx.coordinatorlayout.widget.CoordinatorLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:background="@color/colorPrimary"
-        app:layoutDescription="@xml/main_fragment_scene"
-        tools:context=".ui.main.MainFragment"
-        tools:showPaths="true"
         tools:theme="@style/AppTheme">
 
-        <ImageView
-            android:id="@+id/navigation_icon"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:background="?attr/selectableItemBackgroundBorderless"
-            android:clickable="true"
-            android:focusable="true"
-            android:padding="16dp"
-            android:src="@drawable/ic_baseline_menu_24"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
-
-        <ImageView
-            android:id="@+id/logo"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:src="@drawable/img_bar_logo"
-            app:layout_constraintBottom_toBottomOf="@id/navigation_icon"
-            app:layout_constraintEnd_toStartOf="@id/filter_icon"
-            app:layout_constraintHorizontal_bias="0.0"
-            app:layout_constraintStart_toEndOf="@id/navigation_icon"
-            app:layout_constraintTop_toTopOf="@id/navigation_icon" />
-
-        <ImageView
-            android:id="@+id/filter_icon"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:background="?attr/selectableItemBackgroundBorderless"
-            android:clickable="true"
-            android:focusable="true"
-            android:padding="16dp"
-            android:src="@drawable/ic_baseline_filter_list_24"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
-
-        <com.google.android.material.button.MaterialButton
-            android:id="@+id/catalog"
-            style="@style/Main.Navigation.Item"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:text="@string/menu_catalog" />
-
-        <com.google.android.material.button.MaterialButton
-            android:id="@+id/history"
-            style="@style/Main.Navigation.Item"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:text="@string/menu_history" />
-
-        <com.google.android.material.button.MaterialButton
-            android:id="@+id/account"
-            style="@style/Main.Navigation.Item"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:text="@string/menu_account" />
+        <jp.cordea.drops.ui.ExpandableToolbar
+            android:id="@+id/toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:id="@+id/front"
-            android:layout_width="0dp"
-            android:layout_height="0dp"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginTop="@dimen/expandable_toolbar_min_height"
             android:background="@drawable/front_background"
             android:elevation="1dp"
             android:paddingTop="24dp"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/account">
+            app:layout_behavior="jp.cordea.drops.ui.ExpandableToolbar$ScrollingViewBehavior">
 
             <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/recycler_view"
@@ -116,5 +60,5 @@
                 app:layout_constraintTop_toTopOf="parent"
                 app:layout_constraintWidth_percent="0.1" />
         </androidx.constraintlayout.widget.ConstraintLayout>
-    </androidx.constraintlayout.motion.widget.MotionLayout>
+    </androidx.coordinatorlayout.widget.CoordinatorLayout>
 </layout>
