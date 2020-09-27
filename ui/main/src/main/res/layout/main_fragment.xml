@@ -28,8 +28,7 @@
             android:layout_marginTop="@dimen/expandable_toolbar_min_height"
             android:background="@drawable/front_background"
             android:elevation="1dp"
-            android:paddingTop="24dp"
-            app:layout_behavior="jp.cordea.drops.ui.ExpandableToolbar$ScrollingViewBehavior">
+            android:paddingTop="24dp">
 
             <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/recycler_view"
