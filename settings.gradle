@@ -1,3 +1,5 @@
+include ':domain'
+include ':infra'
 include ':ui:shared'
 include ':ui:login'
 include ':ui:history'
