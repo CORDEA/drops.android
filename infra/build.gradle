@@ -20,6 +20,7 @@ dependencies {
     implementation Deps.coreKtx
 
     implementation Deps.dagger
+    implementation Deps.hiltAndroid
 
     implementation Deps.kotlinxCoroutinesCore
 
