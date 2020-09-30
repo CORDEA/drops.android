@@ -18,6 +18,6 @@ internal class ApiProvideModule {
             .build()
 
     @Provides
-    fun provideLoginApi(retrofit: Retrofit): LoginApi =
-        retrofit.create(LoginApi::class.java)
+    fun provideDropsApi(retrofit: Retrofit): DropsApi =
+        retrofit.create(DropsApi::class.java)
 }

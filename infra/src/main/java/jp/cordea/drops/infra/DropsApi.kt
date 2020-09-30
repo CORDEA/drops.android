@@ -5,7 +5,7 @@ import kotlinx.coroutines.flow.Flow
 import retrofit2.http.Body
 import retrofit2.http.POST
 
-internal interface LoginApi {
+internal interface DropsApi {
     @POST("/user/login")
     fun login(@Body body: LoginBody): Flow<User>
 }

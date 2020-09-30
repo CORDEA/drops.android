@@ -10,8 +10,8 @@ import javax.inject.Singleton
 
 @Singleton
 class UserRepositoryImpl @Inject internal constructor(
-    private val loginApi: LoginApi
+    private val dropsApi: DropsApi
 ) : UserRepository {
     override fun login(emailAddress: EmailAddress, password: Password): Flow<User> =
-        loginApi.login(LoginBody(emailAddress.emailAddress, password.password))
+        dropsApi.login(LoginBody(emailAddress.emailAddress, password.password))
 }
