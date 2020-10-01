@@ -109,8 +109,7 @@ class ExpandableToolbar @JvmOverloads constructor(
         if (parent !is CoordinatorLayout) {
             return null
         }
-        val views = parent.getDependents(this)
-        return views.firstOrNull { it is BackdropFrontLayer }
+        return parent.getDependents(this).firstOrNull()
     }
 
     private enum class State {
@@ -165,5 +164,16 @@ class ExpandableToolbar @JvmOverloads constructor(
                     .start()
             }
         }
+    }
+
+    class ScrollingViewBehavior(
+        context: Context,
+        attrs: AttributeSet
+    ) : CoordinatorLayout.Behavior<View>(context, attrs) {
+        override fun layoutDependsOn(
+            parent: CoordinatorLayout,
+            child: View,
+            dependency: View
+        ): Boolean = dependency is ExpandableToolbar
     }
 }
