@@ -10,6 +10,7 @@ import android.widget.FrameLayout
 import androidx.annotation.DrawableRes
 import androidx.annotation.LayoutRes
 import androidx.coordinatorlayout.widget.CoordinatorLayout
+import androidx.core.view.isInvisible
 import androidx.core.view.isVisible
 import jp.cordea.drops.ui.databinding.ExpandableToolbarBinding
 import kotlinx.coroutines.*
@@ -33,6 +34,9 @@ class ExpandableToolbar @JvmOverloads constructor(
     private val nextState = Channel<State>()
     private var currentState = State.COLLAPSED
 
+    private lateinit var navigationMenu: View
+    private var menu: View? = null
+
     init {
         binding.navigationIcon.setOnClickListener {
             nextState.offer(
@@ -48,11 +52,13 @@ class ExpandableToolbar @JvmOverloads constructor(
 
     fun setNavigationView(@LayoutRes id: Int) {
         binding.navigationMenu.layoutResource = id
+        navigationMenu = binding.navigationMenu.inflate()
     }
 
     fun setMenu(@DrawableRes id: Int, @LayoutRes content: Int) {
         binding.menuIcon.setImageResource(id)
         binding.menu.layoutResource = content
+        menu = binding.menu.inflate()
         binding.menuIcon.isVisible = true
     }
 
@@ -77,27 +83,28 @@ class ExpandableToolbar @JvmOverloads constructor(
         if (currentState == next) {
             return
         }
-        val enableMenu = binding.menuIcon.isVisible
+        val menu = menu
         when (next) {
             State.EXPANDED_NAVIGATION -> {
-                if (enableMenu) {
-                    binding.menu.isVisible = false
+                if (menu != null) {
+                    menu.isInvisible = true
                 }
-                binding.navigationMenu.isVisible = true
-                behavior.slideDown(this)
+                navigationMenu.isInvisible = false
+                behavior.slide(this, navigationMenu.height)
             }
             State.EXPANDED_MENU -> {
-                if (!enableMenu) {
+                if (menu == null) {
                     throw IllegalArgumentException()
                 }
-                binding.navigationMenu.isVisible = false
-                binding.menu.isVisible = true
+                navigationMenu.isInvisible = true
+                menu.isInvisible = false
+                behavior.slide(this, menu.height)
             }
             State.COLLAPSED -> {
                 behavior.slideUp(this)
-                binding.navigationMenu.isVisible = false
-                if (enableMenu) {
-                    binding.menu.isVisible = false
+                navigationMenu.isInvisible = true
+                if (menu != null) {
+                    menu.isInvisible = true
                 }
             }
         }
@@ -127,13 +134,9 @@ class ExpandableToolbar @JvmOverloads constructor(
             R.dimen.expandable_toolbar_min_height
         )
 
-        suspend fun slideDown(toolbar: ExpandableToolbar) {
+        suspend fun slide(toolbar: ExpandableToolbar, to: Int) {
             val layer = toolbar.findFrontLayer() ?: return
-            val diff = toolbar.height - toolbarMinHeight
-            if (diff <= 0) {
-                return
-            }
-            return animateTo(layer, diff.toFloat())
+            return animateTo(layer, to.toFloat())
         }
 
         suspend fun slideUp(toolbar: ExpandableToolbar) {
