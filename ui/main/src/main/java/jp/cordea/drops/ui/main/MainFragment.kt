@@ -12,9 +12,13 @@ import com.xwray.groupie.GroupAdapter
 import com.xwray.groupie.GroupieViewHolder
 import dagger.hilt.android.AndroidEntryPoint
 import jp.cordea.drops.ui.main.databinding.MainFragmentBinding
+import javax.inject.Inject
 
 @AndroidEntryPoint
 class MainFragment : Fragment() {
+    @Inject
+    lateinit var navigator: MainNavigator
+
     private val viewModel: MainViewModel by viewModels()
 
     override fun onCreateView(

@@ -7,6 +7,8 @@ import dagger.Provides
 import dagger.hilt.InstallIn
 import dagger.hilt.android.components.FragmentComponent
 import jp.cordea.drops.ui.login.*
+import jp.cordea.drops.ui.main.MainFragmentDirections
+import jp.cordea.drops.ui.main.MainNavigator
 
 @Module
 @InstallIn(FragmentComponent::class)
@@ -52,6 +54,18 @@ class FragmentModule {
                 .navigate(
                     SignUpFragmentDirections
                         .actionSignUpFragmentToMainFragment()
+                )
+        }
+    }
+
+    @Provides
+    fun provideMainNavigator(fragment: Fragment): MainNavigator = object : MainNavigator {
+        override fun navigateToHistory() {
+            fragment
+                .findNavController()
+                .navigate(
+                    MainFragmentDirections
+                        .actionMainFragmentToHistoryFragment()
                 )
         }
     }
