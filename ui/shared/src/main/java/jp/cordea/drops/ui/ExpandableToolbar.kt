@@ -26,7 +26,7 @@ class ExpandableToolbar @JvmOverloads constructor(
 ) : FrameLayout(context, attrs, defStyleAttr), CoordinatorLayout.AttachedBehavior, CoroutineScope {
     private val binding: ExpandableToolbarBinding =
         ExpandableToolbarBinding.inflate(LayoutInflater.from(context), this, true)
-    private val behavior = Behavior(context)
+    private val behavior = Behavior()
 
     private lateinit var job: Job
     override val coroutineContext: CoroutineContext get() = job + Dispatchers.Main.immediate
@@ -40,12 +40,20 @@ class ExpandableToolbar @JvmOverloads constructor(
     init {
         binding.navigationIcon.setOnClickListener {
             nextState.offer(
-                if (currentState == State.COLLAPSED) State.EXPANDED_NAVIGATION else State.COLLAPSED
+                if (currentState == State.EXPANDED_NAVIGATION) {
+                    State.COLLAPSED
+                } else {
+                    State.EXPANDED_NAVIGATION
+                }
             )
         }
         binding.menuIcon.setOnClickListener {
             nextState.offer(
-                if (currentState == State.COLLAPSED) State.EXPANDED_MENU else State.COLLAPSED
+                if (currentState == State.EXPANDED_MENU) {
+                    State.COLLAPSED
+                } else {
+                    State.EXPANDED_MENU
+                }
             )
         }
     }
@@ -101,7 +109,7 @@ class ExpandableToolbar @JvmOverloads constructor(
                 behavior.slide(this, menu.height)
             }
             State.COLLAPSED -> {
-                behavior.slideUp(this)
+                behavior.slide(this, 0)
                 navigationMenu.isInvisible = true
                 if (menu != null) {
                     menu.isInvisible = true
@@ -125,23 +133,14 @@ class ExpandableToolbar @JvmOverloads constructor(
         COLLAPSED
     }
 
-    private class Behavior(context: Context) : CoordinatorLayout.Behavior<ExpandableToolbar>() {
+    private class Behavior : CoordinatorLayout.Behavior<ExpandableToolbar>() {
         companion object {
             private const val DURATION = 200L
         }
 
-        private val toolbarMinHeight = context.resources.getDimensionPixelSize(
-            R.dimen.expandable_toolbar_min_height
-        )
-
         suspend fun slide(toolbar: ExpandableToolbar, to: Int) {
             val layer = toolbar.findFrontLayer() ?: return
             return animateTo(layer, to.toFloat())
-        }
-
-        suspend fun slideUp(toolbar: ExpandableToolbar) {
-            val layer = toolbar.findFrontLayer() ?: return
-            return animateTo(layer, 0f)
         }
 
         private suspend fun animateTo(view: View, to: Float) {
