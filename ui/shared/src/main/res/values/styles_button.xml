@@ -6,4 +6,9 @@
         <item name="android:backgroundTint">@color/colorAccent</item>
         <item name="cornerRadius">22dp</item>
     </style>
+
+    <style name="Drops.Fab" parent="Widget.MaterialComponents.ExtendedFloatingActionButton">
+        <item name="backgroundTint">@color/colorPrimary</item>
+        <item name="rippleColor">@color/colorPrimaryRippleColor</item>
+    </style>
 </resources>

@@ -60,5 +60,16 @@
                 app:layout_constraintTop_toTopOf="parent"
                 app:layout_constraintWidth_percent="0.1" />
         </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton
+            android:id="@+id/fab"
+            style="@style/Drops.Fab"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom|center_horizontal"
+            android:layout_margin="16dp"
+            android:text="@string/fab_text_one"
+            android:textAllCaps="false"
+            app:icon="@drawable/ic_baseline_shopping_cart_24" />
     </androidx.coordinatorlayout.widget.CoordinatorLayout>
 </layout>
