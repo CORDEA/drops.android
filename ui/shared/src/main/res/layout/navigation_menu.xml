@@ -6,21 +6,21 @@
 
     <com.google.android.material.button.MaterialButton
         android:id="@+id/catalog"
-        style="@style/Main.Navigation.Item"
+        style="@style/Drops.Navigation.Item"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="@string/menu_catalog" />
 
     <com.google.android.material.button.MaterialButton
         android:id="@+id/history"
-        style="@style/Main.Navigation.Item"
+        style="@style/Drops.Navigation.Item"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="@string/menu_history" />
 
     <com.google.android.material.button.MaterialButton
         android:id="@+id/account"
-        style="@style/Main.Navigation.Item"
+        style="@style/Drops.Navigation.Item"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="@string/menu_account" />

@@ -35,7 +35,7 @@ class MainFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         val binding = MainFragmentBinding.bind(view)
-        binding.toolbar.setNavigationView(R.layout.main_navigation_menu)
+        binding.toolbar.setNavigationView(R.layout.navigation_menu)
         binding.toolbar.setMenu(R.drawable.ic_baseline_filter_list_24, R.layout.main_filter_menu)
         binding.lifecycleOwner = viewLifecycleOwner
         binding.viewModel = viewModel

@@ -7,6 +7,15 @@
         <item name="cornerRadius">22dp</item>
     </style>
 
+    <style name="Drops.Navigation" />
+
+    <style name="Drops.Navigation.Item" parent="Widget.MaterialComponents.Button.TextButton">
+        <item name="android:textSize">@dimen/text_size_body_1</item>
+        <item name="android:minHeight">48dp</item>
+        <item name="android:textColor">@color/textColor</item>
+        <item name="rippleColor">@color/colorPrimaryDark</item>
+    </style>
+
     <style name="Drops.Fab" parent="Widget.MaterialComponents.ExtendedFloatingActionButton">
         <item name="backgroundTint">@color/colorPrimary</item>
         <item name="rippleColor">@color/colorPrimaryRippleColor</item>

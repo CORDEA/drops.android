@@ -1,8 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="menu_catalog">Catalog</string>
-    <string name="menu_history">History</string>
-    <string name="menu_account">Account</string>
+
     <string name="fab_text">%s items</string>
     <string name="fab_text_one">1 item</string>
 </resources>
