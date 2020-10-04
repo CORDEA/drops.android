@@ -1,27 +1,40 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:orientation="vertical">
+<layout xmlns:android="http://schemas.android.com/apk/res/android">
 
-    <com.google.android.material.button.MaterialButton
-        android:id="@+id/catalog"
-        style="@style/Drops.Navigation.Item"
+    <data>
+
+        <variable
+            name="bindable"
+            type="jp.cordea.drops.ui.NavigationMenuBindable" />
+    </data>
+
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="@string/menu_catalog" />
+        android:orientation="vertical">
 
-    <com.google.android.material.button.MaterialButton
-        android:id="@+id/history"
-        style="@style/Drops.Navigation.Item"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="@string/menu_history" />
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/catalog"
+            style="@style/Drops.Navigation.Item"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:onClick="@{() -> bindable.onCatalogClick()}"
+            android:text="@string/menu_catalog" />
 
-    <com.google.android.material.button.MaterialButton
-        android:id="@+id/account"
-        style="@style/Drops.Navigation.Item"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="@string/menu_account" />
-</LinearLayout>
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/history"
+            style="@style/Drops.Navigation.Item"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:onClick="@{() -> bindable.onHistoryClick()}"
+            android:text="@string/menu_history" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/account"
+            style="@style/Drops.Navigation.Item"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:onClick="@{() -> bindable.onAccountClick()}"
+            android:text="@string/menu_account" />
+    </LinearLayout>
+</layout>

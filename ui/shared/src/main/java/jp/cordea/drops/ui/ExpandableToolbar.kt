@@ -34,7 +34,7 @@ class ExpandableToolbar @JvmOverloads constructor(
     private val nextState = Channel<State>()
     private var currentState = State.COLLAPSED
 
-    private lateinit var navigationMenu: View
+    lateinit var navigationMenu: View
     private var menu: View? = null
 
     init {

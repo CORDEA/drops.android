@@ -11,6 +11,7 @@ import androidx.recyclerview.widget.GridLayoutManager
 import com.xwray.groupie.GroupAdapter
 import com.xwray.groupie.GroupieViewHolder
 import dagger.hilt.android.AndroidEntryPoint
+import jp.cordea.drops.ui.bindNavigationMenu
 import jp.cordea.drops.ui.main.databinding.MainFragmentBinding
 import javax.inject.Inject
 
@@ -39,6 +40,7 @@ class MainFragment : Fragment() {
         binding.toolbar.setMenu(R.drawable.ic_baseline_filter_list_24, R.layout.main_filter_menu)
         binding.lifecycleOwner = viewLifecycleOwner
         binding.viewModel = viewModel
+        binding.toolbar.bindNavigationMenu(viewModel)
 
         val adapter = GroupAdapter<GroupieViewHolder>()
         binding.recyclerView.adapter = adapter
