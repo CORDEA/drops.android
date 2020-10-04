@@ -1,10 +1,16 @@
 package jp.cordea.drops.ui.history
 
 import android.view.View
+import com.xwray.groupie.Item
 import com.xwray.groupie.viewbinding.BindableItem
 import jp.cordea.drops.ui.history.databinding.HistoryItemBinding
 
-class HistoryItemViewModel()
+class HistoryItemViewModel(
+    val id: String,
+    val imageUrl: String,
+    val title: String,
+    val body: String
+)
 
 class HistoryItem(
     private val viewModel: HistoryItemViewModel
@@ -17,4 +23,10 @@ class HistoryItem(
 
     override fun initializeViewBinding(view: View): HistoryItemBinding =
         HistoryItemBinding.bind(view)
+
+    override fun isSameAs(other: Item<*>): Boolean =
+        (other as? HistoryItem)?.viewModel?.id == viewModel.id
+
+    override fun hasSameContentAs(other: Item<*>): Boolean =
+        (other as? HistoryItem)?.viewModel == viewModel
 }
