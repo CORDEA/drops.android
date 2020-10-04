@@ -12,14 +12,9 @@
 
 
     <com.google.android.material.card.MaterialCardView
-        style="@style/Widget.MaterialComponents.CardView"
+        style="@style/History.Card"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        app:cardCornerRadius="8dp"
-        app:cardElevation="0dp"
-        app:cardUseCompatPadding="true"
-        app:strokeColor="@color/colorPrimaryDark"
-        app:strokeWidth="1dp"
         tools:theme="@style/AppTheme">
 
         <androidx.constraintlayout.widget.ConstraintLayout
