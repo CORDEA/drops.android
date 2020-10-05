@@ -7,12 +7,14 @@ import android.view.ViewGroup
 import androidx.appcompat.view.ContextThemeWrapper
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
+import androidx.lifecycle.lifecycleScope
 import androidx.recyclerview.widget.GridLayoutManager
 import com.xwray.groupie.GroupAdapter
 import com.xwray.groupie.GroupieViewHolder
 import dagger.hilt.android.AndroidEntryPoint
 import jp.cordea.drops.ui.bindNavigationMenu
 import jp.cordea.drops.ui.main.databinding.MainFragmentBinding
+import kotlinx.coroutines.launch
 import javax.inject.Inject
 
 @AndroidEntryPoint
@@ -47,5 +49,20 @@ class MainFragment : Fragment() {
         binding.recyclerView.addItemDecoration(MainItemDecoration(requireContext()))
         binding.recyclerView.layoutManager =
             GridLayoutManager(requireContext(), 3, GridLayoutManager.HORIZONTAL, false)
+
+        lifecycleScope.launch {
+            for (event in viewModel.onEvent) {
+                handleEvent(event)
+            }
+        }
+    }
+
+    private fun handleEvent(event: MainViewModel.Event) {
+        when (event) {
+            MainViewModel.Event.NavigateToCatalog -> {
+            }
+            MainViewModel.Event.NavigateToHistory -> navigator.navigateToHistory()
+            MainViewModel.Event.NavigateToAccount -> TODO()
+        }
     }
 }
