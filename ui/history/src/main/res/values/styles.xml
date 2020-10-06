@@ -3,10 +3,7 @@
 
     <style name="History" />
 
-    <style name="History.Card" parent="Widget.MaterialComponents.CardView">
-        <item name="cardCornerRadius">8dp</item>
-        <item name="cardElevation">0dp</item>
-        <item name="cardUseCompatPadding">true</item>
+    <style name="History.Card" parent="Drops.Card">
         <item name="strokeColor">@color/colorPrimaryDark</item>
         <item name="strokeWidth">1dp</item>
     </style>
