@@ -14,4 +14,7 @@ class UserRepositoryImpl @Inject internal constructor(
 ) : UserRepository {
     override fun login(emailAddress: EmailAddress, password: Password): Flow<User> =
         dropsApi.login(LoginBody(emailAddress.emailAddress, password.password))
+
+    override fun signUp(emailAddress: EmailAddress, password: Password): Flow<User> =
+        dropsApi.signUp(SignUpBody(emailAddress.emailAddress, password.password))
 }

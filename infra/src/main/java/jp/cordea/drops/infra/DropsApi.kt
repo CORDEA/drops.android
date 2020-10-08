@@ -12,6 +12,9 @@ internal interface DropsApi {
     @POST("/user/login")
     fun login(@Body body: LoginBody): Flow<User>
 
+    @POST("/user/new")
+    fun signUp(@Body body: SignUpBody): Flow<User>
+
     @GET("/user/achievements")
     fun getAchievements(): Flow<AchievementsResponse>
 
