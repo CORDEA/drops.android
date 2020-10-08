@@ -1,10 +1,12 @@
 package jp.cordea.drops.infra
 
+import jp.cordea.drops.domain.ItemDetails
 import jp.cordea.drops.domain.User
 import kotlinx.coroutines.flow.Flow
 import retrofit2.http.Body
 import retrofit2.http.GET
 import retrofit2.http.POST
+import retrofit2.http.Path
 
 internal interface DropsApi {
     @POST("/user/login")
@@ -15,4 +17,7 @@ internal interface DropsApi {
 
     @GET("/items")
     fun getItems(): Flow<ItemsResponse>
+
+    @GET("/items/{id}")
+    fun getItemDetails(@Path("id") id: String): Flow<ItemDetails>
 }

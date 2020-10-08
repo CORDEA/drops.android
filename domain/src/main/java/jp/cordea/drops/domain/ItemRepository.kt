@@ -4,4 +4,5 @@ import kotlinx.coroutines.flow.Flow
 
 interface ItemRepository {
     fun findAll(): Flow<List<Item>>
+    fun find(id: String): Flow<ItemDetails>
 }
