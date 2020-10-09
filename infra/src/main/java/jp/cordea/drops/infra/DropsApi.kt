@@ -18,6 +18,12 @@ internal interface DropsApi {
     @GET("/user/achievements")
     fun getAchievements(): Flow<AchievementsResponse>
 
+    @GET("/user/cart")
+    fun getCartItems(): Flow<CartItemsResponse>
+
+    @POST("/user/cart")
+    fun postCartItem(@Body body: CartItemBody): Flow<CartItemsResponse>
+
     @GET("/items")
     fun getItems(): Flow<ItemsResponse>
 
