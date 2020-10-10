@@ -18,9 +18,11 @@ class HistoryFragment : Fragment(R.layout.history_fragment) {
 
     private val viewModel: HistoryViewModel by viewModels()
 
+    private lateinit var binding: HistoryFragmentBinding
+
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        val binding = HistoryFragmentBinding.bind(view)
+        binding = HistoryFragmentBinding.bind(view)
         binding.toolbar.setNavigationView(R.layout.navigation_menu)
         binding.toolbar.bindNavigationMenu(viewModel)
         binding.lifecycleOwner = viewLifecycleOwner
@@ -32,10 +34,16 @@ class HistoryFragment : Fragment(R.layout.history_fragment) {
         }
     }
 
-    private fun handleEvent(event: HistoryViewModel.Event) {
+    private suspend fun handleEvent(event: HistoryViewModel.Event) {
         when (event) {
-            HistoryViewModel.Event.ClickedCatalog -> navigator.navigateToCatalog()
-            HistoryViewModel.Event.ClickedAccount -> navigator.navigateToAccount()
+            HistoryViewModel.Event.ClickedCatalog -> {
+                binding.toolbar.collapse()
+                navigator.navigateToCatalog()
+            }
+            HistoryViewModel.Event.ClickedAccount -> {
+                binding.toolbar.collapse()
+                navigator.navigateToAccount()
+            }
         }
     }
 }

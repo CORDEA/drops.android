@@ -70,6 +70,10 @@ class ExpandableToolbar @JvmOverloads constructor(
         binding.menuIcon.isVisible = true
     }
 
+    suspend fun collapse() {
+        switch(State.COLLAPSED)
+    }
+
     override fun onAttachedToWindow() {
         super.onAttachedToWindow()
         job = SupervisorJob()

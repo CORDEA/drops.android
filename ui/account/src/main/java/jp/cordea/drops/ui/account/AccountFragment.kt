@@ -18,9 +18,11 @@ class AccountFragment : Fragment(R.layout.account_fragment) {
 
     private val viewModel: AccountViewModel by viewModels()
 
+    private lateinit var binding: AccountFragmentBinding
+
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        val binding = AccountFragmentBinding.bind(view)
+        binding = AccountFragmentBinding.bind(view)
         binding.toolbar.setNavigationView(R.layout.navigation_menu)
         binding.toolbar.bindNavigationMenu(viewModel)
         binding.lifecycleOwner = viewLifecycleOwner
@@ -32,10 +34,16 @@ class AccountFragment : Fragment(R.layout.account_fragment) {
         }
     }
 
-    private fun handleEvent(event: AccountViewModel.Event) {
+    private suspend fun handleEvent(event: AccountViewModel.Event) {
         when (event) {
-            AccountViewModel.Event.ClickedCatalog -> navigator.navigateToCatalog()
-            AccountViewModel.Event.ClickedHistory -> navigator.navigateToHistory()
+            AccountViewModel.Event.ClickedCatalog -> {
+                binding.toolbar.collapse()
+                navigator.navigateToCatalog()
+            }
+            AccountViewModel.Event.ClickedHistory -> {
+                binding.toolbar.collapse()
+                navigator.navigateToHistory()
+            }
         }
     }
 }

@@ -24,6 +24,8 @@ class MainFragment : Fragment() {
 
     private val viewModel: MainViewModel by viewModels()
 
+    private lateinit var binding: MainFragmentBinding
+
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
@@ -37,7 +39,7 @@ class MainFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        val binding = MainFragmentBinding.bind(view)
+        binding = MainFragmentBinding.bind(view)
         binding.toolbar.setNavigationView(R.layout.navigation_menu)
         binding.toolbar.setMenu(R.drawable.ic_baseline_filter_list_24, R.layout.main_filter_menu)
         binding.lifecycleOwner = viewLifecycleOwner
@@ -57,12 +59,17 @@ class MainFragment : Fragment() {
         }
     }
 
-    private fun handleEvent(event: MainViewModel.Event) {
+    private suspend fun handleEvent(event: MainViewModel.Event) {
         when (event) {
-            MainViewModel.Event.NavigateToCatalog -> {
+            MainViewModel.Event.NavigateToCatalog -> binding.toolbar.collapse()
+            MainViewModel.Event.NavigateToHistory -> {
+                binding.toolbar.collapse()
+                navigator.navigateToHistory()
             }
-            MainViewModel.Event.NavigateToHistory -> navigator.navigateToHistory()
-            MainViewModel.Event.NavigateToAccount -> navigator.navigateToAccount()
+            MainViewModel.Event.NavigateToAccount -> {
+                binding.toolbar.collapse()
+                navigator.navigateToAccount()
+            }
         }
     }
 }
