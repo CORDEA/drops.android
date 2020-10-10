@@ -40,6 +40,7 @@ class HistoryFragment : Fragment(R.layout.history_fragment) {
                 binding.toolbar.collapse()
                 navigator.navigateToCatalog()
             }
+            HistoryViewModel.Event.ClickedHistory -> binding.toolbar.collapse()
             HistoryViewModel.Event.ClickedAccount -> {
                 binding.toolbar.collapse()
                 navigator.navigateToAccount()

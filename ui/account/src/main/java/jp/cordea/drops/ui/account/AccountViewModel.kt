@@ -19,10 +19,12 @@ class AccountViewModel @ViewModelInject constructor() : ViewModel(), NavigationM
     }
 
     override fun onAccountClick() {
+        _onEvent.offer(Event.ClickedAccount)
     }
 
     sealed class Event {
         object ClickedCatalog : Event()
         object ClickedHistory : Event()
+        object ClickedAccount : Event()
     }
 }

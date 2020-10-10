@@ -44,6 +44,7 @@ class AccountFragment : Fragment(R.layout.account_fragment) {
                 binding.toolbar.collapse()
                 navigator.navigateToHistory()
             }
+            AccountViewModel.Event.ClickedAccount -> binding.toolbar.collapse()
         }
     }
 }

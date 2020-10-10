@@ -15,6 +15,7 @@ class HistoryViewModel @ViewModelInject constructor() : ViewModel(), NavigationM
     }
 
     override fun onHistoryClick() {
+        _onEvent.offer(Event.ClickedHistory)
     }
 
     override fun onAccountClick() {
@@ -23,6 +24,7 @@ class HistoryViewModel @ViewModelInject constructor() : ViewModel(), NavigationM
 
     sealed class Event {
         object ClickedCatalog : Event()
+        object ClickedHistory : Event()
         object ClickedAccount : Event()
     }
 }
