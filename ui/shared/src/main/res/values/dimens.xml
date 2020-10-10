@@ -5,6 +5,7 @@
     <dimen name="text_size_headline_6">20sp</dimen>
     <dimen name="text_size_body_1">16sp</dimen>
     <dimen name="text_size_body_2">14sp</dimen>
+    <dimen name="text_size_caption">12sp</dimen>
 
     <dimen name="expandable_toolbar_min_height">56dp</dimen>
 </resources>
