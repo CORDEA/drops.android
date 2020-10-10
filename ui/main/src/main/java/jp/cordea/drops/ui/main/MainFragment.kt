@@ -62,7 +62,7 @@ class MainFragment : Fragment() {
             MainViewModel.Event.NavigateToCatalog -> {
             }
             MainViewModel.Event.NavigateToHistory -> navigator.navigateToHistory()
-            MainViewModel.Event.NavigateToAccount -> TODO()
+            MainViewModel.Event.NavigateToAccount -> navigator.navigateToAccount()
         }
     }
 }
