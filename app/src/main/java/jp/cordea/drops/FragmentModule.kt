@@ -6,8 +6,10 @@ import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
 import dagger.hilt.android.components.FragmentComponent
+import jp.cordea.drops.ui.NavigationMenuNavigator
+import jp.cordea.drops.ui.account.AccountNavigator
+import jp.cordea.drops.ui.history.HistoryNavigator
 import jp.cordea.drops.ui.login.*
-import jp.cordea.drops.ui.main.MainFragmentDirections
 import jp.cordea.drops.ui.main.MainNavigator
 
 @Module
@@ -59,11 +61,42 @@ class FragmentModule {
     }
 
     @Provides
-    fun provideMainNavigator(fragment: Fragment): MainNavigator = object : MainNavigator {
-        override fun navigateToHistory() {
-            fragment
-                .findNavController()
-                .navigate(NavGraphDirections.actionGlobalHistoryFragment())
+    fun provideMainNavigator(
+        fragment: Fragment,
+        navigator: NavigationMenuNavigator
+    ): MainNavigator = object : MainNavigator, NavigationMenuNavigator by navigator {}
+
+    @Provides
+    fun provideHistoryNavigator(
+        fragment: Fragment,
+        navigator: NavigationMenuNavigator
+    ): HistoryNavigator = object : HistoryNavigator, NavigationMenuNavigator by navigator {}
+
+    @Provides
+    fun provideAccountNavigator(
+        fragment: Fragment,
+        navigator: NavigationMenuNavigator
+    ): AccountNavigator = object : AccountNavigator, NavigationMenuNavigator by navigator {}
+
+    @Provides
+    fun provideNavigationMenuNavigator(fragment: Fragment): NavigationMenuNavigator =
+        object : NavigationMenuNavigator {
+            override fun navigateToCatalog() {
+                fragment
+                    .findNavController()
+                    .navigate(NavGraphDirections.actionGlobalMainFragment())
+            }
+
+            override fun navigateToHistory() {
+                fragment
+                    .findNavController()
+                    .navigate(NavGraphDirections.actionGlobalHistoryFragment())
+            }
+
+            override fun navigateToAccount() {
+                fragment
+                    .findNavController()
+                    .navigate(NavGraphDirections.actionGlobalAccountFragment())
+            }
         }
-    }
 }

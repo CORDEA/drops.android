@@ -1,5 +1,5 @@
 package jp.cordea.drops.ui.main
 
-interface MainNavigator {
-    fun navigateToHistory()
-}
+import jp.cordea.drops.ui.NavigationMenuNavigator
+
+interface MainNavigator : NavigationMenuNavigator
