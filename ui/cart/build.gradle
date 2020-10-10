@@ -1,0 +1,52 @@
+apply plugin: 'com.android.library'
+apply plugin: 'kotlin-android'
+apply plugin: 'kotlin-android-extensions'
+apply plugin: 'kotlin-kapt'
+
+android {
+    compileSdkVersion Versions.compileSdkVersion
+
+    defaultConfig {
+        minSdkVersion Versions.minSdkVersion
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+        consumerProguardFiles "consumer-rules.pro"
+    }
+
+    buildFeatures {
+        dataBinding = true
+        viewBinding = true
+    }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+    kotlinOptions {
+        jvmTarget = '1.8'
+    }
+}
+
+dependencies {
+    implementation project(":ui:shared")
+
+    implementation Deps.stdlib
+    implementation Deps.coreKtx
+    implementation Deps.appcompat
+    implementation Deps.material
+    implementation Deps.constraintlayout
+
+    implementation Deps.navigationFragmentKtx
+    implementation Deps.navigationUiKtx
+
+    implementation Deps.hiltLifecycleViewModel
+
+    implementation Deps.dagger
+    kapt Deps.daggerCompiler
+    implementation Deps.hiltAndroid
+    kapt Deps.hiltAndroidCompiler
+
+    implementation Deps.kotlinxCoroutinesCore
+    implementation Deps.kotlinxCoroutinesAndroid
+
+    implementation Deps.groupie
+    implementation Deps.groupieViewbinding
+}
