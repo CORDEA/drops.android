@@ -63,10 +63,7 @@ class FragmentModule {
         override fun navigateToHistory() {
             fragment
                 .findNavController()
-                .navigate(
-                    MainFragmentDirections
-                        .actionMainFragmentToHistoryFragment()
-                )
+                .navigate(NavGraphDirections.actionGlobalHistoryFragment())
         }
     }
 }
