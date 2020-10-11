@@ -77,6 +77,7 @@ class MainFragment : Fragment() {
                 binding.toolbar.collapse()
                 navigator.navigateToInquiry()
             }
+            MainViewModel.Event.NavigateToCart -> navigator.navigateToCart()
             is MainViewModel.Event.NavigateToItem -> navigator.navigateToItem(event.id)
         }
     }

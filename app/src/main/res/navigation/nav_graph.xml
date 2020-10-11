@@ -11,6 +11,9 @@
         <action
             android:id="@+id/action_mainFragment_to_itemFragment"
             app:destination="@id/itemFragment" />
+        <action
+            android:id="@+id/action_mainFragment_to_cartFragment"
+            app:destination="@id/cartFragment" />
     </fragment>
     <fragment
         android:id="@+id/welcomeFragment"
@@ -73,4 +76,8 @@
         android:id="@+id/itemFragment"
         android:name="jp.cordea.drops.ui.item.ItemFragment"
         android:label="ItemFragment" />
+    <fragment
+        android:id="@+id/cartFragment"
+        android:name="jp.cordea.drops.ui.cart.CartFragment"
+        android:label="CartFragment" />
 </navigation>

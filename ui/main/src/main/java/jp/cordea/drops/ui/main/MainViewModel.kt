@@ -32,11 +32,16 @@ class MainViewModel @ViewModelInject constructor() : ViewModel(),
         _onEvent.offer(Event.NavigateToItem(id))
     }
 
+    fun onCartClick() {
+        _onEvent.offer(Event.NavigateToCart)
+    }
+
     sealed class Event {
         object NavigateToCatalog : Event()
         object NavigateToHistory : Event()
         object NavigateToAccount : Event()
         object NavigateToInquiry : Event()
+        object NavigateToCart : Event()
         class NavigateToItem(val id: String) : Event()
     }
 }

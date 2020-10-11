@@ -71,6 +71,12 @@ class FragmentModule {
                 .findNavController()
                 .navigate(MainFragmentDirections.actionMainFragmentToItemFragment())
         }
+
+        override fun navigateToCart() {
+            fragment
+                .findNavController()
+                .navigate(MainFragmentDirections.actionMainFragmentToCartFragment())
+        }
     }
 
     @Provides
