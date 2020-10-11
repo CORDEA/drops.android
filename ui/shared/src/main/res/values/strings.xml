@@ -3,4 +3,5 @@
     <string name="menu_catalog">Catalog</string>
     <string name="menu_history">History</string>
     <string name="menu_account">Account</string>
+    <string name="menu_inquiry">Inquiry</string>
 </resources>

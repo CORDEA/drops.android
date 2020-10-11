@@ -6,6 +6,7 @@ interface NavigationMenuBindable {
     fun onCatalogClick()
     fun onHistoryClick()
     fun onAccountClick()
+    fun onInquiryClick()
 }
 
 fun ExpandableToolbar.bindNavigationMenu(bindable: NavigationMenuBindable) {

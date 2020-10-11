@@ -22,6 +22,10 @@ class HistoryViewModel @ViewModelInject constructor() : ViewModel(), NavigationM
         _onEvent.offer(Event.ClickedAccount)
     }
 
+    override fun onInquiryClick() {
+        TODO("Not yet implemented")
+    }
+
     sealed class Event {
         object ClickedCatalog : Event()
         object ClickedHistory : Event()

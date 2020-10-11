@@ -11,7 +11,8 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="vertical">
+        android:orientation="vertical"
+        android:padding="8dp">
 
         <com.google.android.material.button.MaterialButton
             android:id="@+id/catalog"
@@ -26,6 +27,7 @@
             style="@style/Drops.Navigation.Item"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
             android:onClick="@{() -> bindable.onHistoryClick()}"
             android:text="@string/menu_history" />
 
@@ -34,7 +36,17 @@
             style="@style/Drops.Navigation.Item"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
             android:onClick="@{() -> bindable.onAccountClick()}"
             android:text="@string/menu_account" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/inquiry"
+            style="@style/Drops.Navigation.Item"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:onClick="@{() -> bindable.onInquiryClick()}"
+            android:text="@string/menu_inquiry" />
     </LinearLayout>
 </layout>
