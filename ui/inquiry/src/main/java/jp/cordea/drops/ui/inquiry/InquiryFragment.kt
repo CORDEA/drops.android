@@ -32,16 +32,16 @@ class InquiryFragment : Fragment(R.layout.inquiry_fragment) {
 
     private suspend fun handleEvent(event: InquiryViewModel.Event) {
         when (event) {
-            InquiryViewModel.Event.ClickedCatalog -> {
+            InquiryViewModel.Event.NavigateToCatalog -> {
                 binding.toolbar.collapse()
             }
-            InquiryViewModel.Event.ClickedHistory -> {
+            InquiryViewModel.Event.NavigateToHistory -> {
                 binding.toolbar.collapse()
             }
-            InquiryViewModel.Event.ClickedAccount -> {
+            InquiryViewModel.Event.NavigateToAccount -> {
                 binding.toolbar.collapse()
             }
-            InquiryViewModel.Event.ClickedInquiry -> binding.toolbar.collapse()
+            InquiryViewModel.Event.NavigateToInquiry -> binding.toolbar.collapse()
         }
     }
 }

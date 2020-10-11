@@ -36,16 +36,16 @@ class HistoryFragment : Fragment(R.layout.history_fragment) {
 
     private suspend fun handleEvent(event: HistoryViewModel.Event) {
         when (event) {
-            HistoryViewModel.Event.ClickedCatalog -> {
+            HistoryViewModel.Event.NavigateToCatalog -> {
                 binding.toolbar.collapse()
                 navigator.navigateToCatalog()
             }
-            HistoryViewModel.Event.ClickedHistory -> binding.toolbar.collapse()
-            HistoryViewModel.Event.ClickedAccount -> {
+            HistoryViewModel.Event.NavigateToHistory -> binding.toolbar.collapse()
+            HistoryViewModel.Event.NavigateToAccount -> {
                 binding.toolbar.collapse()
                 navigator.navigateToAccount()
             }
-            HistoryViewModel.Event.ClickedInquiry -> {
+            HistoryViewModel.Event.NavigateToInquiry -> {
                 binding.toolbar.collapse()
                 navigator.navigateToInquiry()
             }

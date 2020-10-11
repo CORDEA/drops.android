@@ -36,16 +36,16 @@ class AccountFragment : Fragment(R.layout.account_fragment) {
 
     private suspend fun handleEvent(event: AccountViewModel.Event) {
         when (event) {
-            AccountViewModel.Event.ClickedCatalog -> {
+            AccountViewModel.Event.NavigateToCatalog -> {
                 binding.toolbar.collapse()
                 navigator.navigateToCatalog()
             }
-            AccountViewModel.Event.ClickedHistory -> {
+            AccountViewModel.Event.NavigateToHistory -> {
                 binding.toolbar.collapse()
                 navigator.navigateToHistory()
             }
-            AccountViewModel.Event.ClickedAccount -> binding.toolbar.collapse()
-            AccountViewModel.Event.ClickedInquiry -> {
+            AccountViewModel.Event.NavigateToAccount -> binding.toolbar.collapse()
+            AccountViewModel.Event.NavigateToInquiry -> {
                 binding.toolbar.collapse()
                 navigator.navigateToInquiry()
             }

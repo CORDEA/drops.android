@@ -11,25 +11,25 @@ class AccountViewModel @ViewModelInject constructor() : ViewModel(), NavigationM
     val onEvent: ReceiveChannel<Event> get() = _onEvent
 
     override fun onCatalogClick() {
-        _onEvent.offer(Event.ClickedCatalog)
+        _onEvent.offer(Event.NavigateToCatalog)
     }
 
     override fun onHistoryClick() {
-        _onEvent.offer(Event.ClickedHistory)
+        _onEvent.offer(Event.NavigateToHistory)
     }
 
     override fun onAccountClick() {
-        _onEvent.offer(Event.ClickedAccount)
+        _onEvent.offer(Event.NavigateToAccount)
     }
 
     override fun onInquiryClick() {
-        _onEvent.offer(Event.ClickedInquiry)
+        _onEvent.offer(Event.NavigateToInquiry)
     }
 
     sealed class Event {
-        object ClickedCatalog : Event()
-        object ClickedHistory : Event()
-        object ClickedAccount : Event()
-        object ClickedInquiry : Event()
+        object NavigateToCatalog : Event()
+        object NavigateToHistory : Event()
+        object NavigateToAccount : Event()
+        object NavigateToInquiry : Event()
     }
 }
