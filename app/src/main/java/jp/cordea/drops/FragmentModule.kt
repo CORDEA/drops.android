@@ -9,6 +9,7 @@ import dagger.hilt.android.components.FragmentComponent
 import jp.cordea.drops.ui.NavigationMenuNavigator
 import jp.cordea.drops.ui.account.AccountNavigator
 import jp.cordea.drops.ui.history.HistoryNavigator
+import jp.cordea.drops.ui.inquiry.InquiryNavigator
 import jp.cordea.drops.ui.login.*
 import jp.cordea.drops.ui.main.MainFragmentDirections
 import jp.cordea.drops.ui.main.MainNavigator
@@ -90,6 +91,12 @@ class FragmentModule {
         fragment: Fragment,
         navigator: NavigationMenuNavigator
     ): AccountNavigator = object : AccountNavigator, NavigationMenuNavigator by navigator {}
+
+    @Provides
+    fun provideInquiryNavigator(
+        fragment: Fragment,
+        navigator: NavigationMenuNavigator
+    ): InquiryNavigator = object : InquiryNavigator, NavigationMenuNavigator by navigator {}
 
     @Provides
     fun provideNavigationMenuNavigator(fragment: Fragment): NavigationMenuNavigator =

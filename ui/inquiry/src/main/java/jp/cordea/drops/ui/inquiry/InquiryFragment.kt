@@ -9,9 +9,13 @@ import dagger.hilt.android.AndroidEntryPoint
 import jp.cordea.drops.ui.bindNavigationMenu
 import jp.cordea.drops.ui.inquiry.databinding.InquiryFragmentBinding
 import kotlinx.coroutines.launch
+import javax.inject.Inject
 
 @AndroidEntryPoint
 class InquiryFragment : Fragment(R.layout.inquiry_fragment) {
+    @Inject
+    lateinit var navigator: InquiryNavigator
+
     private val viewModel: InquiryViewModel by viewModels()
 
     private lateinit var binding: InquiryFragmentBinding
@@ -34,12 +38,15 @@ class InquiryFragment : Fragment(R.layout.inquiry_fragment) {
         when (event) {
             InquiryViewModel.Event.NavigateToCatalog -> {
                 binding.toolbar.collapse()
+                navigator.navigateToCatalog()
             }
             InquiryViewModel.Event.NavigateToHistory -> {
                 binding.toolbar.collapse()
+                navigator.navigateToHistory()
             }
             InquiryViewModel.Event.NavigateToAccount -> {
                 binding.toolbar.collapse()
+                navigator.navigateToAccount()
             }
             InquiryViewModel.Event.NavigateToInquiry -> binding.toolbar.collapse()
         }
