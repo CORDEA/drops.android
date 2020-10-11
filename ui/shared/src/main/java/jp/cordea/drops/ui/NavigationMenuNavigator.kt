@@ -4,4 +4,5 @@ interface NavigationMenuNavigator {
     fun navigateToCatalog()
     fun navigateToHistory()
     fun navigateToAccount()
+    fun navigateToInquiry()
 }

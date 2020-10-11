@@ -45,6 +45,10 @@ class HistoryFragment : Fragment(R.layout.history_fragment) {
                 binding.toolbar.collapse()
                 navigator.navigateToAccount()
             }
+            HistoryViewModel.Event.ClickedInquiry -> {
+                binding.toolbar.collapse()
+                navigator.navigateToInquiry()
+            }
         }
     }
 }

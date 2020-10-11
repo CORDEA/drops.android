@@ -49,6 +49,10 @@
         android:id="@+id/accountFragment"
         android:name="jp.cordea.drops.ui.account.AccountFragment"
         android:label="AccountFragment" />
+    <fragment
+        android:id="@+id/inquiryFragment"
+        android:name="jp.cordea.drops.ui.inquiry.InquiryFragment"
+        android:label="InquiryFragment" />
     <action
         android:id="@+id/action_global_historyFragment"
         app:destination="@id/historyFragment" />
@@ -58,4 +62,7 @@
     <action
         android:id="@+id/action_global_mainFragment"
         app:destination="@id/mainFragment" />
+    <action
+        android:id="@+id/action_global_inquiryFragment"
+        app:destination="@id/inquiryFragment" />
 </navigation>

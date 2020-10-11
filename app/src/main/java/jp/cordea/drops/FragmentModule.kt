@@ -98,5 +98,11 @@ class FragmentModule {
                     .findNavController()
                     .navigate(NavGraphDirections.actionGlobalAccountFragment())
             }
+
+            override fun navigateToInquiry() {
+                fragment
+                    .findNavController()
+                    .navigate(NavGraphDirections.actionGlobalInquiryFragment())
+            }
         }
 }

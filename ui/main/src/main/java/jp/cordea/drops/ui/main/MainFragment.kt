@@ -41,7 +41,10 @@ class MainFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
         binding = MainFragmentBinding.bind(view)
         binding.toolbar.inflateNavigationView(R.layout.navigation_menu)
-        binding.toolbar.inflateMenu(R.drawable.ic_baseline_filter_list_24, R.layout.main_filter_menu)
+        binding.toolbar.inflateMenu(
+            R.drawable.ic_baseline_filter_list_24,
+            R.layout.main_filter_menu
+        )
         binding.lifecycleOwner = viewLifecycleOwner
         binding.viewModel = viewModel
         binding.toolbar.bindNavigationMenu(viewModel)
@@ -69,6 +72,10 @@ class MainFragment : Fragment() {
             MainViewModel.Event.NavigateToAccount -> {
                 binding.toolbar.collapse()
                 navigator.navigateToAccount()
+            }
+            MainViewModel.Event.NavigateToInquiry -> {
+                binding.toolbar.collapse()
+                navigator.navigateToInquiry()
             }
         }
     }

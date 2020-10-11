@@ -23,12 +23,13 @@ class MainViewModel @ViewModelInject constructor() : ViewModel(), NavigationMenu
     }
 
     override fun onInquiryClick() {
-        TODO("Not yet implemented")
+        _onEvent.offer(Event.NavigateToInquiry)
     }
 
     sealed class Event {
         object NavigateToCatalog : Event()
         object NavigateToHistory : Event()
         object NavigateToAccount : Event()
+        object NavigateToInquiry : Event()
     }
 }
