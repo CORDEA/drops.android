@@ -12,7 +12,6 @@ import jp.cordea.drops.ui.bindNavigationMenu
 import jp.cordea.drops.ui.inquiry.databinding.InquiryFragmentBinding
 import kotlinx.coroutines.flow.launchIn
 import kotlinx.coroutines.flow.onEach
-import kotlinx.coroutines.launch
 import javax.inject.Inject
 
 @AndroidEntryPoint
@@ -33,11 +32,9 @@ class InquiryFragment : Fragment(R.layout.inquiry_fragment) {
         val adapter = GroupAdapter<GroupieViewHolder>()
         binding.recyclerView.adapter = adapter
 
-        lifecycleScope.launch {
-            for (event in viewModel.onEvent) {
-                handleEvent(event)
-            }
-        }
+        viewModel.onEvent
+            .onEach { handleEvent(it) }
+            .launchIn(lifecycleScope)
 
         viewModel.items
             .onEach { items -> adapter.updateAsync(items.map { InquiryItem(it) }) }

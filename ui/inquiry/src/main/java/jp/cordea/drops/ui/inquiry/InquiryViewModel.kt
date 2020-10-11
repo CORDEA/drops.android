@@ -4,13 +4,14 @@ import androidx.hilt.lifecycle.ViewModelInject
 import androidx.lifecycle.ViewModel
 import jp.cordea.drops.ui.NavigationMenuBindable
 import kotlinx.coroutines.channels.Channel
-import kotlinx.coroutines.channels.ReceiveChannel
+import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
+import kotlinx.coroutines.flow.receiveAsFlow
 
 class InquiryViewModel @ViewModelInject constructor() : ViewModel(), NavigationMenuBindable {
     private val _onEvent = Channel<Event>()
-    val onEvent: ReceiveChannel<Event> get() = _onEvent
+    val onEvent: Flow<Event> get() = _onEvent.receiveAsFlow()
 
     private val _items = MutableStateFlow(emptyList<InquiryItemViewModel>())
     val items: StateFlow<List<InquiryItemViewModel>> get() = _items
