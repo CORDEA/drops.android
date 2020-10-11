@@ -5,9 +5,13 @@ import android.view.View
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.lifecycleScope
+import com.xwray.groupie.GroupAdapter
+import com.xwray.groupie.GroupieViewHolder
 import dagger.hilt.android.AndroidEntryPoint
 import jp.cordea.drops.ui.bindNavigationMenu
 import jp.cordea.drops.ui.inquiry.databinding.InquiryFragmentBinding
+import kotlinx.coroutines.flow.launchIn
+import kotlinx.coroutines.flow.onEach
 import kotlinx.coroutines.launch
 import javax.inject.Inject
 
@@ -26,12 +30,18 @@ class InquiryFragment : Fragment(R.layout.inquiry_fragment) {
         binding.lifecycleOwner = viewLifecycleOwner
         binding.toolbar.inflateNavigationView(R.layout.navigation_menu)
         binding.toolbar.bindNavigationMenu(viewModel)
+        val adapter = GroupAdapter<GroupieViewHolder>()
+        binding.recyclerView.adapter = adapter
 
         lifecycleScope.launch {
             for (event in viewModel.onEvent) {
                 handleEvent(event)
             }
         }
+
+        viewModel.items
+            .onEach { items -> adapter.updateAsync(items.map { InquiryItem(it) }) }
+            .launchIn(lifecycleScope)
     }
 
     private suspend fun handleEvent(event: InquiryViewModel.Event) {
