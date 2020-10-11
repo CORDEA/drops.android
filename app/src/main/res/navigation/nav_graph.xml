@@ -7,7 +7,11 @@
     <fragment
         android:id="@+id/mainFragment"
         android:name="jp.cordea.drops.ui.main.MainFragment"
-        android:label="MainFragment" />
+        android:label="MainFragment">
+        <action
+            android:id="@+id/action_mainFragment_to_itemFragment"
+            app:destination="@id/itemFragment" />
+    </fragment>
     <fragment
         android:id="@+id/welcomeFragment"
         android:name="jp.cordea.drops.ui.login.WelcomeFragment"
@@ -65,4 +69,8 @@
     <action
         android:id="@+id/action_global_inquiryFragment"
         app:destination="@id/inquiryFragment" />
+    <fragment
+        android:id="@+id/itemFragment"
+        android:name="jp.cordea.drops.ui.item.ItemFragment"
+        android:label="ItemFragment" />
 </navigation>

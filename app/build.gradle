@@ -46,6 +46,7 @@ dependencies {
     implementation project(":ui:history")
     implementation project(":ui:account")
     implementation project(":ui:inquiry")
+    implementation project(":ui:item")
 
     implementation Deps.stdlib
     implementation Deps.coreKtx

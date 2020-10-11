@@ -10,6 +10,7 @@ import jp.cordea.drops.ui.NavigationMenuNavigator
 import jp.cordea.drops.ui.account.AccountNavigator
 import jp.cordea.drops.ui.history.HistoryNavigator
 import jp.cordea.drops.ui.login.*
+import jp.cordea.drops.ui.main.MainFragmentDirections
 import jp.cordea.drops.ui.main.MainNavigator
 
 @Module
@@ -64,7 +65,13 @@ class FragmentModule {
     fun provideMainNavigator(
         fragment: Fragment,
         navigator: NavigationMenuNavigator
-    ): MainNavigator = object : MainNavigator, NavigationMenuNavigator by navigator {}
+    ): MainNavigator = object : MainNavigator, NavigationMenuNavigator by navigator {
+        override fun navigateToItem(id: String) {
+            fragment
+                .findNavController()
+                .navigate(MainFragmentDirections.actionMainFragmentToItemFragment())
+        }
+    }
 
     @Provides
     fun provideHistoryNavigator(
