@@ -23,7 +23,7 @@ class HistoryFragment : Fragment(R.layout.history_fragment) {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         binding = HistoryFragmentBinding.bind(view)
-        binding.toolbar.setNavigationView(R.layout.navigation_menu)
+        binding.toolbar.inflateNavigationView(R.layout.navigation_menu)
         binding.toolbar.bindNavigationMenu(viewModel)
         binding.lifecycleOwner = viewLifecycleOwner
 

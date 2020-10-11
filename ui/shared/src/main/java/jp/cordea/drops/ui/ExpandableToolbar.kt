@@ -58,12 +58,12 @@ class ExpandableToolbar @JvmOverloads constructor(
         }
     }
 
-    fun setNavigationView(@LayoutRes id: Int) {
+    fun inflateNavigationView(@LayoutRes id: Int) {
         binding.navigationMenu.layoutResource = id
         navigationMenu = binding.navigationMenu.inflate()
     }
 
-    fun setMenu(@DrawableRes id: Int, @LayoutRes content: Int) {
+    fun inflateMenu(@DrawableRes id: Int, @LayoutRes content: Int) {
         binding.menuIcon.setImageResource(id)
         binding.menu.layoutResource = content
         menu = binding.menu.inflate()

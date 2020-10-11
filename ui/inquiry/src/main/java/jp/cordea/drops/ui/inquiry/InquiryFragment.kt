@@ -16,7 +16,7 @@ class InquiryFragment : Fragment(R.layout.inquiry_fragment) {
         super.onViewCreated(view, savedInstanceState)
         val binding = InquiryFragmentBinding.bind(view)
         binding.lifecycleOwner = viewLifecycleOwner
-        binding.toolbar.setNavigationView(R.layout.navigation_menu)
+        binding.toolbar.inflateNavigationView(R.layout.navigation_menu)
         binding.toolbar.bindNavigationMenu(viewModel)
     }
 }

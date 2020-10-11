@@ -23,7 +23,7 @@ class AccountFragment : Fragment(R.layout.account_fragment) {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         binding = AccountFragmentBinding.bind(view)
-        binding.toolbar.setNavigationView(R.layout.navigation_menu)
+        binding.toolbar.inflateNavigationView(R.layout.navigation_menu)
         binding.toolbar.bindNavigationMenu(viewModel)
         binding.lifecycleOwner = viewLifecycleOwner
 
