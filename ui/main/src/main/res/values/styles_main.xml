@@ -20,4 +20,25 @@
         <item name="cornerFamily">rounded</item>
         <item name="cornerSize">18%</item>
     </style>
+
+    <style name="Main.Slider" parent="Widget.MaterialComponents.Slider">
+        <item name="thumbColor">@color/colorAccent</item>
+        <item name="trackColor">@color/colorAccentLight</item>
+        <item name="haloColor">@color/colorPrimary</item>
+        <item name="labelStyle">@style/Main.Slider.Tooltip</item>
+    </style>
+
+    <style name="Main.Slider.Tooltip" parent="Widget.MaterialComponents.Tooltip">
+        <item name="android:textAppearance">@style/Main.Slider.Tooltip.Label</item>
+    </style>
+
+    <style name="Main.Slider.Tooltip.Label" parent="TextAppearance.MaterialComponents.Tooltip">
+        <item name="android:textColor">@color/white</item>
+    </style>
+
+    <style name="Main.Chip" parent="Widget.MaterialComponents.Chip.Filter">
+        <item name="android:textColor">@color/white</item>
+        <item name="checkedIcon">@drawable/ic_baseline_check_circle_24</item>
+        <item name="chipBackgroundColor">@color/colorAccent</item>
+    </style>
 </resources>
