@@ -1,7 +1,7 @@
 package jp.cordea.drops.infra
 
 import jp.cordea.drops.domain.Achievement
-import jp.cordea.drops.domain.AchievementRepository
+import jp.cordea.drops.domain.repository.AchievementRepository
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.map
 import javax.inject.Inject

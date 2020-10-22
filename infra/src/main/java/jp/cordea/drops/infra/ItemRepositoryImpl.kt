@@ -2,7 +2,7 @@ package jp.cordea.drops.infra
 
 import jp.cordea.drops.domain.Item
 import jp.cordea.drops.domain.ItemDetails
-import jp.cordea.drops.domain.ItemRepository
+import jp.cordea.drops.domain.repository.ItemRepository
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.map
 import javax.inject.Inject

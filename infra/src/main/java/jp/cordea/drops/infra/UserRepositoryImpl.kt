@@ -3,7 +3,7 @@ package jp.cordea.drops.infra
 import jp.cordea.drops.domain.EmailAddress
 import jp.cordea.drops.domain.Password
 import jp.cordea.drops.domain.User
-import jp.cordea.drops.domain.UserRepository
+import jp.cordea.drops.domain.repository.UserRepository
 import kotlinx.coroutines.flow.Flow
 import javax.inject.Inject
 import javax.inject.Singleton
