@@ -1,6 +1,5 @@
 package jp.cordea.drops.infra
 
-import jp.cordea.drops.domain.ItemDetails
 import jp.cordea.drops.domain.Order
 import jp.cordea.drops.domain.User
 import kotlinx.coroutines.flow.Flow
@@ -30,7 +29,4 @@ internal interface DropsApi {
 
     @GET("/items")
     fun getItems(): Flow<ItemsResponse>
-
-    @GET("/items/{id}")
-    fun getItemDetails(@Path("id") id: String): Flow<ItemDetails>
 }

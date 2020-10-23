@@ -1,7 +1,6 @@
 package jp.cordea.drops.infra
 
 import jp.cordea.drops.domain.Item
-import jp.cordea.drops.domain.ItemDetails
 import jp.cordea.drops.domain.repository.ItemRepository
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.map
@@ -14,7 +13,4 @@ class ItemRepositoryImpl @Inject internal constructor(
 ) : ItemRepository {
     override fun findAll(): Flow<List<Item>> =
         dropsApi.getItems().map { it.items }
-
-    override fun find(id: String): Flow<ItemDetails> =
-        dropsApi.getItemDetails(id)
 }
