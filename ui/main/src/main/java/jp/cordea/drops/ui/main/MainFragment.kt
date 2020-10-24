@@ -14,6 +14,9 @@ import com.xwray.groupie.GroupieViewHolder
 import dagger.hilt.android.AndroidEntryPoint
 import jp.cordea.drops.ui.bindNavigationMenu
 import jp.cordea.drops.ui.main.databinding.MainFragmentBinding
+import kotlinx.coroutines.flow.launchIn
+import kotlinx.coroutines.flow.map
+import kotlinx.coroutines.flow.onEach
 import kotlinx.coroutines.launch
 import javax.inject.Inject
 
@@ -60,6 +63,11 @@ class MainFragment : Fragment() {
                 handleEvent(event)
             }
         }
+
+        viewModel.items
+            .map { list -> list.map { MainItem(it, viewModel) } }
+            .onEach { adapter.updateAsync(it) }
+            .launchIn(lifecycleScope)
     }
 
     private suspend fun handleEvent(event: MainViewModel.Event) {
