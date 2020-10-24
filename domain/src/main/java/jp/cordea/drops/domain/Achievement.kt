@@ -4,5 +4,5 @@ class Achievement(
     val name: String,
     val description: String,
     val level: Int,
-    val progress: Float,
+    val progress: Float
 )
