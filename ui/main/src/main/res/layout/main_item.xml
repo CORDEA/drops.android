@@ -44,6 +44,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="16dp"
             android:gravity="center_horizontal"
+            android:text="@{viewModel.name}"
             android:textColor="@color/textColor"
             android:textSize="@dimen/text_size_body_1"
             app:layout_constraintBottom_toBottomOf="parent"

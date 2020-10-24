@@ -10,6 +10,7 @@ import jp.cordea.drops.ui.main.databinding.MainItemBinding
 
 class MainItemViewModel(
     val id: String,
+    val name: String,
     val imageUrl: String
 )
 
