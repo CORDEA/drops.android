@@ -20,11 +20,13 @@ dependencies {
     implementation Deps.coreKtx
 
     implementation Deps.dagger
+    kapt Deps.daggerCompiler
     implementation Deps.hiltAndroid
+    kapt Deps.hiltAndroidCompiler
 
     implementation Deps.kotlinxCoroutinesCore
 
-    implementation Deps.retrofit
+    api Deps.retrofit
     implementation Deps.converterMoshi
 
     implementation Deps.moshiKotlin
