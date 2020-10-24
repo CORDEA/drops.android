@@ -1,6 +1,7 @@
 package jp.cordea.drops.ui.main
 
 import android.view.View
+import com.xwray.groupie.Item
 import com.xwray.groupie.viewbinding.BindableItem
 import jp.cordea.drops.ui.main.databinding.MainItemBinding
 
@@ -25,4 +26,10 @@ class MainItem(
 
     override fun initializeViewBinding(view: View): MainItemBinding =
         MainItemBinding.bind(view)
+
+    override fun isSameAs(other: Item<*>): Boolean =
+        (other as? MainItem)?.viewModel?.id == viewModel.id
+
+    override fun hasSameContentAs(other: Item<*>): Boolean =
+        (other as? MainItem)?.viewModel == viewModel
 }
