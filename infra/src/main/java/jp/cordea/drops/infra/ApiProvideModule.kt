@@ -1,10 +1,10 @@
 package jp.cordea.drops.infra
 
+import com.squareup.moshi.Moshi
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
 import dagger.hilt.android.components.ApplicationComponent
-import jp.cordea.drops.domain.BuildConfig
 import retrofit2.Retrofit
 import retrofit2.converter.moshi.MoshiConverterFactory
 import javax.inject.Singleton
@@ -17,7 +17,13 @@ internal class ApiProvideModule {
     fun provideRetrofit(apiUrlProvider: ApiUrlProvider): Retrofit =
         Retrofit.Builder()
             .baseUrl(apiUrlProvider.baseUrl)
-            .addConverterFactory(MoshiConverterFactory.create())
+            .addConverterFactory(
+                MoshiConverterFactory.create(
+                    Moshi.Builder()
+                        .add(LocalDateTimeJsonAdapter())
+                        .build()
+                )
+            )
             .build()
 
     @Provides

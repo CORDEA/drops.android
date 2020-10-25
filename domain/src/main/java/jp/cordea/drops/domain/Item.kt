@@ -2,7 +2,7 @@ package jp.cordea.drops.domain
 
 import com.squareup.moshi.Json
 import com.squareup.moshi.JsonClass
-import java.util.*
+import java.time.LocalDateTime
 
 @JsonClass(generateAdapter = true)
 class Item(
@@ -10,9 +10,9 @@ class Item(
     val name: String,
     val description: String,
     @Json(name = "image_urls") val imageUrls: List<String>,
-    @Json(name = "created_at") val createdAt: Date,
-    @Json(name = "ended_at") val endedAt: Date,
-    @Json(name = "updated_at") val updatedAt: Date,
+    @Json(name = "created_at") val createdAt: LocalDateTime,
+    @Json(name = "ended_at") val endedAt: LocalDateTime,
+    @Json(name = "updated_at") val updatedAt: LocalDateTime,
     val price: String,
     @Json(name = "currency_code") val currencyCode: String,
     val tags: List<String>,
