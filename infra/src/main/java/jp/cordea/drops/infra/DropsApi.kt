@@ -2,31 +2,30 @@ package jp.cordea.drops.infra
 
 import jp.cordea.drops.domain.Order
 import jp.cordea.drops.domain.User
-import kotlinx.coroutines.flow.Flow
 import retrofit2.http.*
 
 internal interface DropsApi {
     @POST("/user/login")
-    fun login(@Body body: LoginBody): Flow<User>
+    suspend fun login(@Body body: LoginBody): User
 
     @POST("/user/new")
-    fun signUp(@Body body: SignUpBody): Flow<User>
+    suspend fun signUp(@Body body: SignUpBody): User
 
     @GET("/user/achievements")
-    fun getAchievements(): Flow<AchievementsResponse>
+    suspend fun getAchievements(): AchievementsResponse
 
     @GET("/user/cart")
-    fun getCartItems(): Flow<CartItemsResponse>
+    suspend fun getCartItems(): CartItemsResponse
 
     @POST("/user/cart")
-    fun postCartItem(@Body body: CartItemBody): Flow<CartItemsResponse>
+    suspend fun postCartItem(@Body body: CartItemBody): CartItemsResponse
 
     @GET("/user/orders")
-    fun getOrders(): Flow<OrdersResponse>
+    suspend fun getOrders(): OrdersResponse
 
     @PATCH("/user/orders/cancel/{id}")
-    fun cancelOrder(@Path("id") id: String): Flow<Order>
+    suspend fun cancelOrder(@Path("id") id: String): Order
 
     @GET("/items")
-    fun getItems(): Flow<ItemsResponse>
+    suspend fun getItems(): ItemsResponse
 }
