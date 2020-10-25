@@ -4,6 +4,7 @@ import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
 import dagger.hilt.android.components.ApplicationComponent
+import jp.cordea.drops.domain.BuildConfig
 import retrofit2.Retrofit
 import retrofit2.converter.moshi.MoshiConverterFactory
 import javax.inject.Singleton
@@ -13,9 +14,9 @@ import javax.inject.Singleton
 internal class ApiProvideModule {
     @Provides
     @Singleton
-    fun provideRetrofit(): Retrofit =
+    fun provideRetrofit(apiUrlProvider: ApiUrlProvider): Retrofit =
         Retrofit.Builder()
-            .baseUrl("")
+            .baseUrl(apiUrlProvider.baseUrl)
             .addConverterFactory(MoshiConverterFactory.create())
             .build()
 
