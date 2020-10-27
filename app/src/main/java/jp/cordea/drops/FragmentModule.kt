@@ -67,7 +67,7 @@ class FragmentModule {
         fragment: Fragment,
         navigator: NavigationMenuNavigator
     ): MainNavigator = object : MainNavigator, NavigationMenuNavigator by navigator {
-        override fun navigateToItem(id: String) {
+        override fun navigateToItem(id: Long) {
             fragment
                 .findNavController()
                 .navigate(MainFragmentDirections.actionMainFragmentToItemFragment())

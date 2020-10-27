@@ -41,7 +41,7 @@ class MainViewModel @ViewModelInject constructor(
         _onEvent.offer(Event.NavigateToInquiry)
     }
 
-    override fun onItemClick(id: String) {
+    override fun onItemClick(id: Long) {
         _onEvent.offer(Event.NavigateToItem(id))
     }
 
@@ -63,6 +63,6 @@ class MainViewModel @ViewModelInject constructor(
         object NavigateToAccount : Event()
         object NavigateToInquiry : Event()
         object NavigateToCart : Event()
-        class NavigateToItem(val id: String) : Event()
+        class NavigateToItem(val id: Long) : Event()
     }
 }

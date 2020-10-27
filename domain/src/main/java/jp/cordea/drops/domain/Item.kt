@@ -6,7 +6,7 @@ import java.time.LocalDateTime
 
 @JsonClass(generateAdapter = true)
 class Item(
-    val id: String,
+    val id: Long,
     val name: String,
     val description: String,
     @Json(name = "image_urls") val imageUrls: List<String>,
@@ -18,11 +18,11 @@ class Item(
     val tags: List<String>,
     val materials: List<String>,
     val views: Int,
-    @Json(name = "item_weight") val itemWeight: Int,
+    @Json(name = "item_weight") val itemWeight: String,
     @Json(name = "item_weight_unit") val itemWeightUnit: String,
-    @Json(name = "item_length") val itemLength: Int,
-    @Json(name = "item_width") val itemWidth: Int,
-    @Json(name = "item_height") val itemHeight: Int,
+    @Json(name = "item_length") val itemLength: String,
+    @Json(name = "item_width") val itemWidth: String,
+    @Json(name = "item_height") val itemHeight: String,
     @Json(name = "item_dimensions_unit") val itemDimensionsUnit: String,
     val recipient: String
 )

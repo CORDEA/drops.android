@@ -9,7 +9,7 @@ import com.xwray.groupie.viewbinding.GroupieViewHolder
 import jp.cordea.drops.ui.main.databinding.MainItemBinding
 
 class MainItemViewModel(
-    val id: String,
+    val id: Long,
     val name: String,
     val imageUrl: String
 )
@@ -19,7 +19,7 @@ class MainItem(
     private val listener: OnItemClickListener
 ) : BindableItem<MainItemBinding>() {
     interface OnItemClickListener {
-        fun onItemClick(id: String)
+        fun onItemClick(id: Long)
     }
 
     private var disposable: Disposable? = null

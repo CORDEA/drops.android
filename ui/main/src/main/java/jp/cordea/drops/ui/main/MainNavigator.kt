@@ -4,5 +4,5 @@ import jp.cordea.drops.ui.NavigationMenuNavigator
 
 interface MainNavigator : NavigationMenuNavigator {
     fun navigateToCart()
-    fun navigateToItem(id: String)
+    fun navigateToItem(id: Long)
 }
