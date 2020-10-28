@@ -6,6 +6,7 @@ import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
 import dagger.hilt.android.components.FragmentComponent
+import jp.cordea.drops.domain.Item
 import jp.cordea.drops.ui.NavigationMenuNavigator
 import jp.cordea.drops.ui.account.AccountNavigator
 import jp.cordea.drops.ui.history.HistoryNavigator
@@ -67,10 +68,10 @@ class FragmentModule {
         fragment: Fragment,
         navigator: NavigationMenuNavigator
     ): MainNavigator = object : MainNavigator, NavigationMenuNavigator by navigator {
-        override fun navigateToItem(id: Long) {
+        override fun navigateToItem(item: Item) {
             fragment
                 .findNavController()
-                .navigate(MainFragmentDirections.actionMainFragmentToItemFragment())
+                .navigate(MainFragmentDirections.actionMainFragmentToItemFragment(item))
         }
 
         override fun navigateToCart() {

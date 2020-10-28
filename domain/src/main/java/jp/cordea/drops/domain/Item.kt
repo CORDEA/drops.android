@@ -1,9 +1,12 @@
 package jp.cordea.drops.domain
 
+import android.os.Parcelable
 import com.squareup.moshi.Json
 import com.squareup.moshi.JsonClass
+import kotlinx.android.parcel.Parcelize
 import java.time.LocalDateTime
 
+@Parcelize
 @JsonClass(generateAdapter = true)
 class Item(
     val id: Long,
@@ -25,4 +28,4 @@ class Item(
     @Json(name = "item_height") val itemHeight: String,
     @Json(name = "item_dimensions_unit") val itemDimensionsUnit: String,
     val recipient: String
-)
+) : Parcelable

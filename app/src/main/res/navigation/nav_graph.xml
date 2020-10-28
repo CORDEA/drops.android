@@ -75,7 +75,11 @@
     <fragment
         android:id="@+id/itemFragment"
         android:name="jp.cordea.drops.ui.item.ItemFragment"
-        android:label="ItemFragment" />
+        android:label="ItemFragment">
+        <argument
+            android:name="item"
+            app:argType="jp.cordea.drops.domain.Item" />
+    </fragment>
     <fragment
         android:id="@+id/cartFragment"
         android:name="jp.cordea.drops.ui.cart.CartFragment"

@@ -86,7 +86,7 @@ class MainFragment : Fragment() {
                 navigator.navigateToInquiry()
             }
             MainViewModel.Event.NavigateToCart -> navigator.navigateToCart()
-            is MainViewModel.Event.NavigateToItem -> navigator.navigateToItem(event.id)
+            is MainViewModel.Event.NavigateToItem -> navigator.navigateToItem(event.item)
         }
     }
 }
