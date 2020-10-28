@@ -21,7 +21,8 @@
             android:layout_width="0dp"
             android:layout_height="0dp"
             android:background="@color/colorPrimary"
-            app:layout_constraintBottom_toTopOf="@id/body"
+            android:scaleType="centerCrop"
+            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintDimensionRatio="1:1"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -33,23 +34,9 @@
             android:layout_width="0dp"
             android:layout_height="0dp"
             android:src="@drawable/img_rounded_inner_shadow"
-            app:layout_constraintBottom_toBottomOf="@id/image"
-            app:layout_constraintEnd_toEndOf="@id/image"
-            app:layout_constraintStart_toStartOf="@id/image"
-            app:layout_constraintTop_toTopOf="@id/image" />
-
-        <TextView
-            android:id="@+id/body"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="16dp"
-            android:gravity="center_horizontal"
-            android:text="@{viewModel.name}"
-            android:textColor="@color/textColor"
-            android:textSize="@dimen/text_size_body_1"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="@id/image"
-            app:layout_constraintStart_toStartOf="@id/image"
-            app:layout_constraintTop_toBottomOf="@id/image" />
+            app:layout_constraintBottom_toBottomOf="@id/image_view"
+            app:layout_constraintEnd_toEndOf="@id/image_view"
+            app:layout_constraintStart_toStartOf="@id/image_view"
+            app:layout_constraintTop_toTopOf="@id/image_view" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

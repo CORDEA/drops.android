@@ -51,7 +51,7 @@ class MainViewModel @ViewModelInject constructor(
 
     private fun refresh() {
         repository.findAll()
-            .map { list -> list.map { MainItemViewModel(it.id, it.name, it.imageUrls.first()) } }
+            .map { list -> list.map { MainItemViewModel(it.id, it.imageUrls.first()) } }
             .flowOn(Dispatchers.IO)
             .onEach { _items.value = it }
             .launchIn(viewModelScope)
