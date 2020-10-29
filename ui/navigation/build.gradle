@@ -27,5 +27,9 @@ android {
 }
 
 dependencies {
+    implementation project(":domain")
     implementation Deps.stdlib
+
+    implementation Deps.navigationFragmentKtx
+    implementation Deps.navigationUiKtx
 }

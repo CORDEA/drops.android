@@ -14,6 +14,7 @@ import jp.cordea.drops.ui.inquiry.InquiryNavigator
 import jp.cordea.drops.ui.login.*
 import jp.cordea.drops.ui.main.MainFragmentDirections
 import jp.cordea.drops.ui.main.MainNavigator
+import jp.cordea.drops.ui.navigation.NavGraphDirections
 
 @Module
 @InstallIn(FragmentComponent::class)
