@@ -5,17 +5,15 @@ import android.view.View
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.lifecycleScope
+import androidx.navigation.fragment.findNavController
 import dagger.hilt.android.AndroidEntryPoint
 import jp.cordea.drops.ui.bindNavigationMenu
 import jp.cordea.drops.ui.history.databinding.HistoryFragmentBinding
+import jp.cordea.drops.ui.navigation.NavGraphDirections
 import kotlinx.coroutines.launch
-import javax.inject.Inject
 
 @AndroidEntryPoint
 class HistoryFragment : Fragment(R.layout.history_fragment) {
-    @Inject
-    lateinit var navigator: HistoryNavigator
-
     private val viewModel: HistoryViewModel by viewModels()
 
     private lateinit var binding: HistoryFragmentBinding
@@ -38,16 +36,19 @@ class HistoryFragment : Fragment(R.layout.history_fragment) {
         when (event) {
             HistoryViewModel.Event.NavigateToCatalog -> {
                 binding.toolbar.collapse()
-                navigator.navigateToCatalog()
+                findNavController()
+                    .navigate(NavGraphDirections.actionGlobalMainFragment())
             }
             HistoryViewModel.Event.NavigateToHistory -> binding.toolbar.collapse()
             HistoryViewModel.Event.NavigateToAccount -> {
                 binding.toolbar.collapse()
-                navigator.navigateToAccount()
+                findNavController()
+                    .navigate(NavGraphDirections.actionGlobalAccountFragment())
             }
             HistoryViewModel.Event.NavigateToInquiry -> {
                 binding.toolbar.collapse()
-                navigator.navigateToInquiry()
+                findNavController()
+                    .navigate(NavGraphDirections.actionGlobalInquiryFragment())
             }
         }
     }

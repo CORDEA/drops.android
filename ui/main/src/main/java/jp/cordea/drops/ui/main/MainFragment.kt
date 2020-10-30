@@ -8,23 +8,21 @@ import androidx.appcompat.view.ContextThemeWrapper
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.lifecycleScope
+import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.GridLayoutManager
 import com.xwray.groupie.GroupAdapter
 import com.xwray.groupie.GroupieViewHolder
 import dagger.hilt.android.AndroidEntryPoint
 import jp.cordea.drops.ui.bindNavigationMenu
 import jp.cordea.drops.ui.main.databinding.MainFragmentBinding
+import jp.cordea.drops.ui.navigation.NavGraphDirections
 import kotlinx.coroutines.flow.launchIn
 import kotlinx.coroutines.flow.map
 import kotlinx.coroutines.flow.onEach
 import kotlinx.coroutines.launch
-import javax.inject.Inject
 
 @AndroidEntryPoint
 class MainFragment : Fragment() {
-    @Inject
-    lateinit var navigator: MainNavigator
-
     private val viewModel: MainViewModel by viewModels()
 
     private lateinit var binding: MainFragmentBinding
@@ -75,18 +73,27 @@ class MainFragment : Fragment() {
             MainViewModel.Event.NavigateToCatalog -> binding.toolbar.collapse()
             MainViewModel.Event.NavigateToHistory -> {
                 binding.toolbar.collapse()
-                navigator.navigateToHistory()
+                findNavController()
+                    .navigate(NavGraphDirections.actionGlobalHistoryFragment())
             }
             MainViewModel.Event.NavigateToAccount -> {
                 binding.toolbar.collapse()
-                navigator.navigateToAccount()
+                findNavController()
+                    .navigate(NavGraphDirections.actionGlobalAccountFragment())
             }
             MainViewModel.Event.NavigateToInquiry -> {
                 binding.toolbar.collapse()
-                navigator.navigateToInquiry()
+                findNavController()
+                    .navigate(NavGraphDirections.actionGlobalInquiryFragment())
             }
-            MainViewModel.Event.NavigateToCart -> navigator.navigateToCart()
-            is MainViewModel.Event.NavigateToItem -> navigator.navigateToItem(event.item)
+            MainViewModel.Event.NavigateToCart -> findNavController().navigate(
+                MainFragmentDirections
+                    .actionMainFragmentToCartFragment()
+            )
+            is MainViewModel.Event.NavigateToItem -> findNavController().navigate(
+                MainFragmentDirections
+                    .actionMainFragmentToItemFragment(event.item)
+            )
         }
     }
 }

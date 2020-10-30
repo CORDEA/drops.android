@@ -27,6 +27,7 @@ android {
 }
 
 dependencies {
+    implementation project(":ui:navigation")
     implementation project(":ui:shared")
 
     implementation Deps.stdlib

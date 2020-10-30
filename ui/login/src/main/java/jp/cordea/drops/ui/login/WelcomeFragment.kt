@@ -5,18 +5,15 @@ import android.view.View
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.lifecycleScope
+import androidx.navigation.fragment.findNavController
 import com.google.android.material.transition.MaterialSharedAxis
 import dagger.hilt.android.AndroidEntryPoint
 import jp.cordea.drops.ui.login.WelcomeViewModel.Event
 import jp.cordea.drops.ui.login.databinding.WelcomeFragmentBinding
 import kotlinx.coroutines.launch
-import javax.inject.Inject
 
 @AndroidEntryPoint
 class WelcomeFragment : Fragment(R.layout.welcome_fragment) {
-    @Inject
-    lateinit var navigator: WelcomeNavigator
-
     private val viewModel: WelcomeViewModel by viewModels()
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -38,10 +35,14 @@ class WelcomeFragment : Fragment(R.layout.welcome_fragment) {
         lifecycleScope.launch {
             for (event in viewModel.onEvent) {
                 when (event) {
-                    is Event.NavigateToLogIn ->
-                        navigator.navigateToLogIn(event.emailAddress)
-                    is Event.NavigateToSignUp ->
-                        navigator.navigateToSignUp(event.emailAddress)
+                    is Event.NavigateToLogIn -> findNavController().navigate(
+                        WelcomeFragmentDirections
+                            .actionWelcomeFragmentToLogInFragment(event.emailAddress)
+                    )
+                    is Event.NavigateToSignUp -> findNavController().navigate(
+                        WelcomeFragmentDirections
+                            .actionWelcomeFragmentToSignUpFragment(event.emailAddress)
+                    )
                 }
             }
         }

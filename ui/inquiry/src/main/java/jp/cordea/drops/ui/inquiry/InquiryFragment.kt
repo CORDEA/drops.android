@@ -5,20 +5,18 @@ import android.view.View
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.lifecycleScope
+import androidx.navigation.fragment.findNavController
 import com.xwray.groupie.GroupAdapter
 import com.xwray.groupie.GroupieViewHolder
 import dagger.hilt.android.AndroidEntryPoint
 import jp.cordea.drops.ui.bindNavigationMenu
 import jp.cordea.drops.ui.inquiry.databinding.InquiryFragmentBinding
+import jp.cordea.drops.ui.navigation.NavGraphDirections
 import kotlinx.coroutines.flow.launchIn
 import kotlinx.coroutines.flow.onEach
-import javax.inject.Inject
 
 @AndroidEntryPoint
 class InquiryFragment : Fragment(R.layout.inquiry_fragment) {
-    @Inject
-    lateinit var navigator: InquiryNavigator
-
     private val viewModel: InquiryViewModel by viewModels()
 
     private lateinit var binding: InquiryFragmentBinding
@@ -45,15 +43,18 @@ class InquiryFragment : Fragment(R.layout.inquiry_fragment) {
         when (event) {
             InquiryViewModel.Event.NavigateToCatalog -> {
                 binding.toolbar.collapse()
-                navigator.navigateToCatalog()
+                findNavController()
+                    .navigate(NavGraphDirections.actionGlobalMainFragment())
             }
             InquiryViewModel.Event.NavigateToHistory -> {
                 binding.toolbar.collapse()
-                navigator.navigateToHistory()
+                findNavController()
+                    .navigate(NavGraphDirections.actionGlobalHistoryFragment())
             }
             InquiryViewModel.Event.NavigateToAccount -> {
                 binding.toolbar.collapse()
-                navigator.navigateToAccount()
+                findNavController()
+                    .navigate(NavGraphDirections.actionGlobalAccountFragment())
             }
             InquiryViewModel.Event.NavigateToInquiry -> binding.toolbar.collapse()
         }

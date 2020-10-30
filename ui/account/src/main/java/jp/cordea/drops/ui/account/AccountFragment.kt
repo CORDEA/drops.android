@@ -5,17 +5,15 @@ import android.view.View
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.lifecycleScope
+import androidx.navigation.fragment.findNavController
 import dagger.hilt.android.AndroidEntryPoint
 import jp.cordea.drops.ui.account.databinding.AccountFragmentBinding
 import jp.cordea.drops.ui.bindNavigationMenu
+import jp.cordea.drops.ui.navigation.NavGraphDirections
 import kotlinx.coroutines.launch
-import javax.inject.Inject
 
 @AndroidEntryPoint
 class AccountFragment : Fragment(R.layout.account_fragment) {
-    @Inject
-    lateinit var navigator: AccountNavigator
-
     private val viewModel: AccountViewModel by viewModels()
 
     private lateinit var binding: AccountFragmentBinding
@@ -38,16 +36,19 @@ class AccountFragment : Fragment(R.layout.account_fragment) {
         when (event) {
             AccountViewModel.Event.NavigateToCatalog -> {
                 binding.toolbar.collapse()
-                navigator.navigateToCatalog()
+                findNavController()
+                    .navigate(NavGraphDirections.actionGlobalMainFragment())
             }
             AccountViewModel.Event.NavigateToHistory -> {
                 binding.toolbar.collapse()
-                navigator.navigateToHistory()
+                findNavController()
+                    .navigate(NavGraphDirections.actionGlobalHistoryFragment())
             }
             AccountViewModel.Event.NavigateToAccount -> binding.toolbar.collapse()
             AccountViewModel.Event.NavigateToInquiry -> {
                 binding.toolbar.collapse()
-                navigator.navigateToInquiry()
+                findNavController()
+                    .navigate(NavGraphDirections.actionGlobalInquiryFragment())
             }
         }
     }
