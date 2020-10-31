@@ -52,4 +52,6 @@ dependencies {
 
     implementation Deps.groupie
     implementation Deps.groupieViewbinding
+
+    implementation Deps.coil
 }
