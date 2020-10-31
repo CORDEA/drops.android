@@ -32,6 +32,9 @@ dependencies {
     implementation Deps.material
     implementation Deps.constraintlayout
 
+    implementation Deps.dagger
+    implementation Deps.hiltAndroid
+
     implementation Deps.kotlinxCoroutinesCore
     implementation Deps.kotlinxCoroutinesAndroid
 }
