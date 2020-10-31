@@ -26,6 +26,7 @@ class ItemFragment : Fragment(R.layout.item_fragment) {
         super.onViewCreated(view, savedInstanceState)
         val binding = ItemFragmentBinding.bind(view)
         binding.lifecycleOwner = viewLifecycleOwner
+        binding.viewModel = viewModel
         viewModel.init(args.item)
 
         val imageAdapter = GroupAdapter<GroupieViewHolder>()
