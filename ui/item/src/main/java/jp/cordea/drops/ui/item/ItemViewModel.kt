@@ -14,7 +14,12 @@ class ItemViewModel @ViewModelInject constructor(
     private val _items = MutableStateFlow(emptyList<ListItemViewModel>())
     val items: StateFlow<List<ListItemViewModel>> get() = _items
 
+    val name = MutableLiveData("")
+    val description = MutableLiveData("")
+
     fun init(item: Item) {
+        name.value = item.name
+        description.value = item.description
         _items.value = listOf(
             ListItemViewModel(
                 resourceProvider.getString(R.string.label_item_height),
