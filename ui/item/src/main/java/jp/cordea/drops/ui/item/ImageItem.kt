@@ -3,6 +3,7 @@ package jp.cordea.drops.ui.item
 import android.view.View
 import coil.load
 import coil.request.Disposable
+import com.xwray.groupie.Item
 import com.xwray.groupie.viewbinding.BindableItem
 import com.xwray.groupie.viewbinding.GroupieViewHolder
 import jp.cordea.drops.ui.item.databinding.ImageItemBinding
@@ -27,4 +28,9 @@ class ImageItem(private val viewModel: ImageItemViewModel) : BindableItem<ImageI
 
     override fun initializeViewBinding(view: View): ImageItemBinding =
         ImageItemBinding.bind(view)
+
+    override fun isSameAs(other: Item<*>): Boolean =
+        (other as? ImageItem)?.viewModel == viewModel
+
+    override fun hasSameContentAs(other: Item<*>): Boolean = isSameAs(other)
 }
