@@ -11,6 +11,9 @@ import kotlinx.coroutines.flow.StateFlow
 class ItemViewModel @ViewModelInject constructor(
     private val resourceProvider: ResourceProvider
 ) : ViewModel() {
+    private val _images = MutableStateFlow(emptyList<ImageItemViewModel>())
+    val images: StateFlow<List<ImageItemViewModel>> get() = _images
+
     private val _items = MutableStateFlow(emptyList<ListItemViewModel>())
     val items: StateFlow<List<ListItemViewModel>> get() = _items
 
@@ -20,6 +23,7 @@ class ItemViewModel @ViewModelInject constructor(
     fun init(item: Item) {
         name.value = item.name
         description.value = item.description
+        _images.value = item.imageUrls.map { ImageItemViewModel(it) }
         _items.value = listOf(
             ListItemViewModel(
                 resourceProvider.getString(R.string.label_item_height),

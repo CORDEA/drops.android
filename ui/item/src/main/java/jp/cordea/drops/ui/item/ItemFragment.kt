@@ -25,11 +25,18 @@ class ItemFragment : Fragment(R.layout.item_fragment) {
         binding.lifecycleOwner = viewLifecycleOwner
         viewModel.init(args.item)
 
+        val imageAdapter = GroupAdapter<GroupieViewHolder>()
+        binding.viewPager.adapter = imageAdapter
         val adapter = GroupAdapter<GroupieViewHolder>()
         binding.recyclerView.adapter = adapter
         viewModel.items
             .onEach { list ->
                 adapter.updateAsync(list.map { ListItem(it) })
+            }
+            .launchIn(lifecycleScope)
+        viewModel.images
+            .onEach { list ->
+                imageAdapter.updateAsync(list.map { ImageItem(it) })
             }
             .launchIn(lifecycleScope)
     }
