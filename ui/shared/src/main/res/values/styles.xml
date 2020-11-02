@@ -9,6 +9,8 @@
 
         <item name="android:windowLightStatusBar">true</item>
         <item name="android:colorControlActivated">@color/colorAccent</item>
+
+        <item name="android:textViewStyle">@style/Drops.TextView</item>
     </style>
 
     <style name="AppTheme.NoActionBar">

@@ -59,6 +59,7 @@ class ItemFragment : Fragment(R.layout.item_fragment) {
                     val chip = Chip(requireContext())
                     chip.text = it
                     chip.setChipBackgroundColorResource(R.color.colorPrimary)
+                    chip.setTextAppearanceResource(R.style.Item_Chip_Text)
                     chip.isClickable = false
                     binding.tags.addView(chip)
                 }
