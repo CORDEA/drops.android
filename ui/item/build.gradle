@@ -36,6 +36,7 @@ dependencies {
     implementation Deps.appcompat
     implementation Deps.material
     implementation Deps.constraintlayout
+    implementation Deps.lifecycleLivedataKtx
 
     implementation Deps.navigationFragmentKtx
     implementation Deps.navigationUiKtx

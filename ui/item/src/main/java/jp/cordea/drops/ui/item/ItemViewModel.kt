@@ -3,12 +3,16 @@ package jp.cordea.drops.ui.item
 import androidx.hilt.lifecycle.ViewModelInject
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
+import androidx.lifecycle.map
+import androidx.lifecycle.viewModelScope
 import jp.cordea.drops.domain.Item
+import jp.cordea.drops.domain.repository.CartRepository
 import jp.cordea.drops.ui.ResourceProvider
-import kotlinx.coroutines.flow.MutableStateFlow
-import kotlinx.coroutines.flow.StateFlow
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.flow.*
 
 class ItemViewModel @ViewModelInject constructor(
+    private val repository: CartRepository,
     private val resourceProvider: ResourceProvider
 ) : ViewModel() {
     private val _images = MutableStateFlow(emptyList<ImageItemViewModel>())
@@ -23,12 +27,12 @@ class ItemViewModel @ViewModelInject constructor(
     private val _buttonText = MutableStateFlow("")
     val buttonText: StateFlow<String> get() = _buttonText
 
-    val name = MutableLiveData("")
-    val description = MutableLiveData("")
+    private val item = MutableLiveData<Item>()
+    val name = item.map { it.name }
+    val description = item.map { it.description }
 
     fun init(item: Item) {
-        name.value = item.name
-        description.value = item.description
+        this.item.value = item
         _buttonText.value =
             resourceProvider.getString(R.string.button_text_format, item.currencyCode, item.price)
         _images.value = item.imageUrls.map { ImageItemViewModel(it) }
@@ -67,5 +71,15 @@ class ItemViewModel @ViewModelInject constructor(
                 )
             )
         )
+    }
+
+    fun onFabClick() {
+        val id = requireNotNull(item.value?.id)
+        repository.addItemToCart(id)
+            .flowOn(Dispatchers.IO)
+            .onEach {
+                // TODO
+            }
+            .launchIn(viewModelScope)
     }
 }

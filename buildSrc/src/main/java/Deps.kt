@@ -12,6 +12,7 @@ object Deps {
     val appcompat = "androidx.appcompat:appcompat:1.2.0"
     val material = "com.google.android.material:material:1.2.1"
     val constraintlayout = "androidx.constraintlayout:constraintlayout:2.0.1"
+    val lifecycleLivedataKtx = "androidx.lifecycle:lifecycle-livedata-ktx:2.2.0"
 
     val navigationSafeArgsGradlePlugin =
         "androidx.navigation:navigation-safe-args-gradle-plugin:${Versions.navigation}"
