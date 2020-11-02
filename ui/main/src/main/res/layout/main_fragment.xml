@@ -61,16 +61,15 @@
                 app:layout_constraintWidth_percent="0.1" />
         </androidx.constraintlayout.widget.ConstraintLayout>
 
-        <com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton
+        <com.google.android.material.floatingactionbutton.FloatingActionButton
             android:id="@+id/fab"
-            style="@style/Drops.Fab"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_gravity="bottom|center_horizontal"
+            android:layout_gravity="bottom|end"
             android:layout_margin="16dp"
             android:onClick="@{() -> viewModel.onCartClick()}"
-            android:text="@string/fab_text_one"
-            android:textAllCaps="false"
-            app:icon="@drawable/ic_baseline_shopping_cart_24" />
+            android:src="@drawable/ic_baseline_shopping_cart_24"
+            app:backgroundTint="@color/colorPrimary"
+            app:rippleColor="@color/colorPrimaryRippleColor" />
     </androidx.coordinatorlayout.widget.CoordinatorLayout>
 </layout>
