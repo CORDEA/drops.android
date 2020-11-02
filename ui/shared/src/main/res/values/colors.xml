@@ -12,4 +12,5 @@
     <color name="colorPrimaryRippleColor">#1fefebe9</color>
     <color name="colorAccentRippleColor">#1f424242</color>
     <color name="white">#ffffff</color>
+    <color name="background">#fafafa</color>
 </resources>
