@@ -64,6 +64,12 @@ class ItemFragment : Fragment(R.layout.item_fragment) {
                 }
             }
             .launchIn(lifecycleScope)
+        viewModel.buttonText
+            .onEach {
+                binding.fab.text = it
+                binding.fab.extend()
+            }
+            .launchIn(lifecycleScope)
     }
 
     private class ImageItemDecoration : RecyclerView.ItemDecoration() {

@@ -29,6 +29,7 @@
         </com.google.android.material.appbar.AppBarLayout>
 
         <androidx.core.widget.NestedScrollView
+            android:id="@+id/scroll_view"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:fillViewport="true"
@@ -135,8 +136,13 @@
             style="@style/Item.Fab"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_gravity="bottom|center_horizontal"
             android:layout_margin="16dp"
-            android:textAllCaps="false" />
+            android:textAllCaps="false"
+            android:textColor="@color/white"
+            app:icon="@drawable/ic_baseline_shopping_cart_24"
+            app:iconTint="@color/white"
+            app:layout_anchor="@id/scroll_view"
+            app:layout_anchorGravity="bottom|center_horizontal"
+            app:layout_behavior="com.google.android.material.behavior.HideBottomViewOnScrollBehavior" />
     </androidx.coordinatorlayout.widget.CoordinatorLayout>
 </layout>

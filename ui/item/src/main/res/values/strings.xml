@@ -5,4 +5,5 @@
     <string name="label_item_width">Width</string>
     <string name="label_item_height">Height</string>
     <string name="item_body_format">%1$s %2$s</string>
+    <string name="button_text_format">%1$s %2$s</string>
 </resources>

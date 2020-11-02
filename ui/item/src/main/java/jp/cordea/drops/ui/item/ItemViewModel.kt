@@ -20,12 +20,17 @@ class ItemViewModel @ViewModelInject constructor(
     private val _tags = MutableStateFlow(emptyList<String>())
     val tags: StateFlow<List<String>> get() = _tags
 
+    private val _buttonText = MutableStateFlow("")
+    val buttonText: StateFlow<String> get() = _buttonText
+
     val name = MutableLiveData("")
     val description = MutableLiveData("")
 
     fun init(item: Item) {
         name.value = item.name
         description.value = item.description
+        _buttonText.value =
+            resourceProvider.getString(R.string.button_text_format, item.currencyCode, item.price)
         _images.value = item.imageUrls.map { ImageItemViewModel(it) }
         _tags.value = item.tags
         _items.value = listOf(
