@@ -5,6 +5,7 @@ import dagger.Module
 import dagger.hilt.InstallIn
 import dagger.hilt.android.components.ApplicationComponent
 import jp.cordea.drops.domain.repository.AchievementRepository
+import jp.cordea.drops.domain.repository.CartRepository
 import jp.cordea.drops.domain.repository.ItemRepository
 import jp.cordea.drops.domain.repository.UserRepository
 
@@ -19,4 +20,7 @@ internal interface RepositoryModule {
 
     @Binds
     fun bindAchievementRepository(impl: AchievementRepositoryImpl): AchievementRepository
+
+    @Binds
+    fun bindCartRepository(impl: CartRepositoryImpl): CartRepository
 }

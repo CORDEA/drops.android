@@ -1,5 +1,5 @@
 package jp.cordea.drops.infra
 
 internal class CartItemBody(
-    val id: String
+    val id: Long
 )
