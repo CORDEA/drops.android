@@ -10,6 +10,7 @@ import jp.cordea.drops.domain.repository.CartRepository
 import jp.cordea.drops.ui.ResourceProvider
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.*
+import timber.log.Timber
 
 class ItemViewModel @ViewModelInject constructor(
     private val repository: CartRepository,
@@ -79,6 +80,9 @@ class ItemViewModel @ViewModelInject constructor(
             .flowOn(Dispatchers.IO)
             .onEach {
                 // TODO
+            }
+            .catch {
+                Timber.e(it)
             }
             .launchIn(viewModelScope)
     }

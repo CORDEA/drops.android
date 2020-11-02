@@ -40,4 +40,6 @@ object Deps {
     val groupieViewbinding = "com.github.lisawray.groupie:groupie-viewbinding:2.8.1"
 
     val coil = "io.coil-kt:coil:1.0.0"
+
+    val timber = "com.jakewharton.timber:timber:4.7.1"
 }
