@@ -27,7 +27,7 @@ class HistoryViewModel @ViewModelInject constructor(
                         HistoryInProgressItemViewModel(
                             order.id,
                             // TODO
-                            order.items.first().imageUrls.first(),
+                            order.items.first().imageUrls,
                             "",
                             order.items.joinToString(", ") { it.name }
                         )
