@@ -41,6 +41,7 @@ dependencies {
     implementation Deps.navigationUiKtx
 
     implementation Deps.hiltLifecycleViewModel
+    kapt Deps.hiltCompiler
 
     implementation Deps.dagger
     kapt Deps.daggerCompiler

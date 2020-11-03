@@ -8,16 +8,16 @@ import jp.cordea.drops.ui.NavigationMenuBindable
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.channels.Channel
 import kotlinx.coroutines.channels.ReceiveChannel
-import kotlinx.coroutines.flow.flowOn
-import kotlinx.coroutines.flow.launchIn
-import kotlinx.coroutines.flow.map
-import kotlinx.coroutines.flow.onEach
+import kotlinx.coroutines.flow.*
 
 class HistoryViewModel @ViewModelInject constructor(
     private val repository: OrderRepository
 ) : ViewModel(), NavigationMenuBindable {
     private val _onEvent = Channel<Event>()
     val onEvent: ReceiveChannel<Event> get() = _onEvent
+
+    private val _items = MutableStateFlow(emptyList<HistoryItemViewModel>())
+    val items: StateFlow<List<HistoryItemViewModel>> get() = _items
 
     init {
         repository.findAll()
@@ -43,7 +43,7 @@ class HistoryViewModel @ViewModelInject constructor(
                 }
             }
             .flowOn(Dispatchers.IO)
-            .onEach { }
+            .onEach { _items.value = it }
             .launchIn(viewModelScope)
     }
 
