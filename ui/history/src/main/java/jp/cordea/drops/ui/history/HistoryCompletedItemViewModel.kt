@@ -9,7 +9,7 @@ data class HistoryCompletedItemViewModel(
     val body: String
 ) : HistoryItemViewModel()
 
-data class HistoryStatusItemViewModel(
+data class HistoryInProgressItemViewModel(
     val id: String,
     val imageUrl: String,
     val title: String,

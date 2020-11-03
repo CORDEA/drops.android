@@ -24,7 +24,7 @@ class HistoryViewModel @ViewModelInject constructor(
             .map { list ->
                 list.map { order ->
                     if (order.isCancelable) {
-                        HistoryStatusItemViewModel(
+                        HistoryInProgressItemViewModel(
                             order.id,
                             // TODO
                             order.items.first().imageUrls.first(),
