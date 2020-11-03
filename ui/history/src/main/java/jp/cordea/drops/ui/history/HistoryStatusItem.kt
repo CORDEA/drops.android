@@ -5,13 +5,6 @@ import com.xwray.groupie.Item
 import com.xwray.groupie.viewbinding.BindableItem
 import jp.cordea.drops.ui.history.databinding.HistoryStatusItemBinding
 
-data class HistoryStatusItemViewModel(
-    val id: String,
-    val imageUrl: String,
-    val title: String,
-    val body: String
-)
-
 class HistoryStatusItem(
     private val viewModel: HistoryStatusItemViewModel
 ) : BindableItem<HistoryStatusItemBinding>() {

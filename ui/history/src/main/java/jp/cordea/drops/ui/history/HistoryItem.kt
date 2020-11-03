@@ -5,15 +5,8 @@ import com.xwray.groupie.Item
 import com.xwray.groupie.viewbinding.BindableItem
 import jp.cordea.drops.ui.history.databinding.HistoryItemBinding
 
-class HistoryItemViewModel(
-    val id: String,
-    val imageUrl: String,
-    val title: String,
-    val body: String
-)
-
 class HistoryItem(
-    private val viewModel: HistoryItemViewModel
+    private val viewModel: HistoryCompletedItemViewModel
 ) : BindableItem<HistoryItemBinding>() {
     override fun getLayout(): Int = R.layout.history_item
 

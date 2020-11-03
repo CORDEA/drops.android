@@ -7,7 +7,7 @@
 
         <variable
             name="viewModel"
-            type="jp.cordea.drops.ui.history.HistoryItemViewModel" />
+            type="jp.cordea.drops.ui.history.HistoryCompletedItemViewModel" />
     </data>
 
     <com.google.android.material.card.MaterialCardView
