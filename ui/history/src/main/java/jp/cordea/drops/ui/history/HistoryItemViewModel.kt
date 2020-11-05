@@ -4,7 +4,7 @@ sealed class HistoryItemViewModel
 
 data class HistoryCompletedItemViewModel(
     val id: String,
-    val imageUrl: String,
+    val imageUrls: List<String>,
     val title: String,
     val body: String
 ) : HistoryItemViewModel()

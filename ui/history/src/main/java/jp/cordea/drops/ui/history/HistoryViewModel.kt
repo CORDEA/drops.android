@@ -63,7 +63,7 @@ class HistoryViewModel @ViewModelInject constructor(
                         HistoryCompletedItemViewModel(
                             order.id,
                             // TODO
-                            order.items.first().imageUrls.first(),
+                            order.items.first().imageUrls,
                             date,
                             buildTitle(order.items)
                         )
