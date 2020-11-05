@@ -54,16 +54,14 @@ class HistoryViewModel @ViewModelInject constructor(
                     if (order.isCancelable) {
                         HistoryInProgressItemViewModel(
                             order.id,
-                            // TODO
-                            order.items.first().imageUrls,
+                            order.items.mapNotNull { it.imageUrls.firstOrNull() },
                             date,
                             buildTitle(order.items)
                         )
                     } else {
                         HistoryCompletedItemViewModel(
                             order.id,
-                            // TODO
-                            order.items.first().imageUrls,
+                            order.items.mapNotNull { it.imageUrls.firstOrNull() },
                             date,
                             buildTitle(order.items)
                         )
