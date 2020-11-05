@@ -9,10 +9,14 @@ import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.channels.Channel
 import kotlinx.coroutines.channels.ReceiveChannel
 import kotlinx.coroutines.flow.*
+import java.time.format.DateTimeFormatter
+import java.time.format.FormatStyle
 
 class HistoryViewModel @ViewModelInject constructor(
     private val repository: OrderRepository
 ) : ViewModel(), NavigationMenuBindable {
+    private val formatter = DateTimeFormatter.ofLocalizedDateTime(FormatStyle.MEDIUM)
+
     private val _onEvent = Channel<Event>()
     val onEvent: ReceiveChannel<Event> get() = _onEvent
 
@@ -20,31 +24,7 @@ class HistoryViewModel @ViewModelInject constructor(
     val items: StateFlow<List<HistoryItemViewModel>> get() = _items
 
     init {
-        repository.findAll()
-            .map { list ->
-                list.map { order ->
-                    if (order.isCancelable) {
-                        HistoryInProgressItemViewModel(
-                            order.id,
-                            // TODO
-                            order.items.first().imageUrls,
-                            "",
-                            order.items.joinToString(", ") { it.name }
-                        )
-                    } else {
-                        HistoryCompletedItemViewModel(
-                            order.id,
-                            // TODO
-                            order.items.first().imageUrls.first(),
-                            "",
-                            order.items.joinToString(", ") { it.name }
-                        )
-                    }
-                }
-            }
-            .flowOn(Dispatchers.IO)
-            .onEach { _items.value = it }
-            .launchIn(viewModelScope)
+        refresh()
     }
 
     override fun onCatalogClick() {
@@ -61,6 +41,35 @@ class HistoryViewModel @ViewModelInject constructor(
 
     override fun onInquiryClick() {
         _onEvent.offer(Event.NavigateToInquiry)
+    }
+
+    private fun refresh() {
+        repository.findAll()
+            .map { list ->
+                list.map { order ->
+                    val date = order.orderedAt.format(formatter)
+                    if (order.isCancelable) {
+                        HistoryInProgressItemViewModel(
+                            order.id,
+                            // TODO
+                            order.items.first().imageUrls,
+                            date,
+                            order.items.joinToString(", ") { it.name }
+                        )
+                    } else {
+                        HistoryCompletedItemViewModel(
+                            order.id,
+                            // TODO
+                            order.items.first().imageUrls.first(),
+                            date,
+                            order.items.joinToString(", ") { it.name }
+                        )
+                    }
+                }
+            }
+            .flowOn(Dispatchers.IO)
+            .onEach { _items.value = it }
+            .launchIn(viewModelScope)
     }
 
     sealed class Event {
