@@ -3,8 +3,10 @@ package jp.cordea.drops.ui.history
 import androidx.hilt.lifecycle.ViewModelInject
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
+import jp.cordea.drops.domain.Item
 import jp.cordea.drops.domain.repository.OrderRepository
 import jp.cordea.drops.ui.NavigationMenuBindable
+import jp.cordea.drops.ui.ResourceProvider
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.channels.Channel
 import kotlinx.coroutines.channels.ReceiveChannel
@@ -13,6 +15,7 @@ import java.time.format.DateTimeFormatter
 import java.time.format.FormatStyle
 
 class HistoryViewModel @ViewModelInject constructor(
+    private val resourceProvider: ResourceProvider,
     private val repository: OrderRepository
 ) : ViewModel(), NavigationMenuBindable {
     private val formatter = DateTimeFormatter.ofLocalizedDateTime(FormatStyle.MEDIUM)
@@ -54,7 +57,7 @@ class HistoryViewModel @ViewModelInject constructor(
                             // TODO
                             order.items.first().imageUrls,
                             date,
-                            order.items.joinToString(", ") { it.name }
+                            buildTitle(order.items)
                         )
                     } else {
                         HistoryCompletedItemViewModel(
@@ -62,7 +65,7 @@ class HistoryViewModel @ViewModelInject constructor(
                             // TODO
                             order.items.first().imageUrls.first(),
                             date,
-                            order.items.joinToString(", ") { it.name }
+                            buildTitle(order.items)
                         )
                     }
                 }
@@ -71,6 +74,14 @@ class HistoryViewModel @ViewModelInject constructor(
             .onEach { _items.value = it }
             .launchIn(viewModelScope)
     }
+
+    private fun buildTitle(items: List<Item>): String =
+        items.joinToString(", ") {
+            resourceProvider.getString(
+                R.string.history_item_title_suffix,
+                it.name.take(30)
+            )
+        }
 
     sealed class Event {
         object NavigateToCatalog : Event()
