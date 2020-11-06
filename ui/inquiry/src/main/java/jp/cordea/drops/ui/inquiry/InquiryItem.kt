@@ -1,7 +1,6 @@
 package jp.cordea.drops.ui.inquiry
 
 import android.view.View
-import androidx.annotation.DrawableRes
 import androidx.annotation.StringRes
 import com.xwray.groupie.Item
 import com.xwray.groupie.viewbinding.BindableItem
@@ -9,9 +8,7 @@ import jp.cordea.drops.ui.inquiry.databinding.InquiryItemBinding
 
 data class InquiryItemViewModel(
     val id: Int,
-    @DrawableRes val icon: Int,
-    @StringRes val title: Int,
-    @StringRes val description: Int
+    @StringRes val title: Int
 )
 
 class InquiryItem(

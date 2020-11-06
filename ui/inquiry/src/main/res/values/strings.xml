@@ -1,9 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="inquiry_returns_title">Returns and Refunds</string>
-    <string name="inquiry_returns_description"></string>
     <string name="inquiry_inquiry_title">Contact Us</string>
-    <string name="inquiry_inquiry_description"></string>
     <string name="inquiry_licenses_title">OSS Licenses</string>
-    <string name="inquiry_licenses_description"></string>
 </resources>

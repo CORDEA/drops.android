@@ -20,21 +20,15 @@ class InquiryViewModel @ViewModelInject constructor() : ViewModel(), NavigationM
         _items.value = listOf(
             InquiryItemViewModel(
                 0,
-                R.drawable.ic_baseline_swap_vertical_circle_40,
-                R.string.inquiry_returns_title,
-                R.string.inquiry_returns_description
+                R.string.inquiry_returns_title
             ),
             InquiryItemViewModel(
                 1,
-                R.drawable.ic_baseline_help_40,
-                R.string.inquiry_inquiry_title,
-                R.string.inquiry_inquiry_description
+                R.string.inquiry_inquiry_title
             ),
             InquiryItemViewModel(
                 2,
-                R.drawable.ic_baseline_code_40,
-                R.string.inquiry_licenses_title,
-                R.string.inquiry_licenses_description
+                R.string.inquiry_licenses_title
             )
         )
     }
