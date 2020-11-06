@@ -28,8 +28,6 @@
                 android:id="@+id/recycler_view"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:paddingTop="24dp"
-                android:paddingBottom="24dp"
                 app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager" />
         </FrameLayout>
     </androidx.coordinatorlayout.widget.CoordinatorLayout>
