@@ -2,10 +2,12 @@ package jp.cordea.drops.ui.inquiry
 
 import android.os.Bundle
 import android.view.View
+import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.lifecycleScope
 import androidx.navigation.fragment.findNavController
+import androidx.recyclerview.widget.DividerItemDecoration
 import com.xwray.groupie.GroupAdapter
 import com.xwray.groupie.GroupieViewHolder
 import dagger.hilt.android.AndroidEntryPoint
@@ -27,8 +29,24 @@ class InquiryFragment : Fragment(R.layout.inquiry_fragment) {
         binding.lifecycleOwner = viewLifecycleOwner
         binding.toolbar.inflateNavigationView(R.layout.navigation_menu)
         binding.toolbar.bindNavigationMenu(viewModel)
+
         val adapter = GroupAdapter<GroupieViewHolder>()
         binding.recyclerView.adapter = adapter
+        binding.recyclerView.addItemDecoration(
+            DividerItemDecoration(
+                requireContext(),
+                DividerItemDecoration.VERTICAL
+            ).apply {
+                setDrawable(
+                    requireNotNull(
+                        ContextCompat.getDrawable(
+                            requireContext(),
+                            R.drawable.inquiry_item_divider
+                        )
+                    )
+                )
+            }
+        )
 
         viewModel.onEvent
             .onEach { handleEvent(it) }
