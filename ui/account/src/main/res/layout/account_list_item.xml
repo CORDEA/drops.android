@@ -5,7 +5,7 @@
 
         <variable
             name="viewModel"
-            type="jp.cordea.drops.ui.account.AccountItemViewModel" />
+            type="jp.cordea.drops.ui.account.AccountListItemViewModel" />
     </data>
 
     <LinearLayout
