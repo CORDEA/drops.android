@@ -20,12 +20,14 @@
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:text="@{viewModel.label}"
             android:textColor="@color/textColor"
             android:textSize="@dimen/text_size_body_1" />
 
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:text="@{viewModel.body}"
             android:textColor="@color/textSecondaryColor"
             android:textSize="@dimen/text_size_body_1" />
     </LinearLayout>
