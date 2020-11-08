@@ -4,8 +4,6 @@ import android.view.View
 import com.xwray.groupie.viewbinding.BindableItem
 import jp.cordea.drops.ui.account.databinding.AccountHeaderItemBinding
 
-class AccountHeaderItemViewModel
-
 class AccountHeaderItem(
     private val viewModel: AccountHeaderItemViewModel
 ) : BindableItem<AccountHeaderItemBinding>() {
