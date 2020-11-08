@@ -1,6 +1,7 @@
 package jp.cordea.drops.ui.account
 
 import android.view.View
+import com.xwray.groupie.Item
 import com.xwray.groupie.viewbinding.BindableItem
 import jp.cordea.drops.ui.account.databinding.AccountListItemBinding
 
@@ -15,4 +16,9 @@ class AccountListItem(
 
     override fun initializeViewBinding(view: View): AccountListItemBinding =
         AccountListItemBinding.bind(view)
+
+    override fun isSameAs(other: Item<*>): Boolean =
+        (other as? AccountListItem)?.viewModel == viewModel
+
+    override fun hasSameContentAs(other: Item<*>): Boolean = isSameAs(other)
 }

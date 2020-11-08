@@ -2,13 +2,13 @@ package jp.cordea.drops.ui.account
 
 sealed class AccountItemViewModel
 
-class AccountHeaderItemViewModel(
+data class AccountHeaderItemViewModel(
     val imageUrl: String,
     val name: String,
     val description: String
 ) : AccountItemViewModel()
 
-class AccountListItemViewModel(
+data class AccountListItemViewModel(
     val label: String,
     val body: String
 ) : AccountItemViewModel()
