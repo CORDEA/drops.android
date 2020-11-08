@@ -22,7 +22,7 @@
             android:padding="16dp">
 
             <com.google.android.material.imageview.ShapeableImageView
-                android:id="@+id/image"
+                android:id="@+id/image_view"
                 style="@style/Account.Image.Shape"
                 android:layout_width="0dp"
                 android:layout_height="0dp"
@@ -41,7 +41,7 @@
                 android:textSize="@dimen/text_size_headline_6"
                 app:layout_constraintBottom_toTopOf="@id/body"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toEndOf="@id/image"
+                app:layout_constraintStart_toEndOf="@id/image_view"
                 app:layout_constraintTop_toTopOf="parent"
                 app:layout_constraintVertical_chainStyle="packed" />
 
