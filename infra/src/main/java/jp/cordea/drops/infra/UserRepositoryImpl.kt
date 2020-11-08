@@ -18,4 +18,6 @@ class UserRepositoryImpl @Inject internal constructor(
 
     override fun signUp(emailAddress: EmailAddress, password: Password): Flow<User> =
         flow { emit(dropsApi.signUp(SignUpBody(emailAddress.emailAddress, password.password))) }
+
+    override fun find(): Flow<User> = flow { emit(dropsApi.getUser()) }
 }

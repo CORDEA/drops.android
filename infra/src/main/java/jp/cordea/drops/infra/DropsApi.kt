@@ -11,6 +11,9 @@ internal interface DropsApi {
     @POST("/user/new")
     suspend fun signUp(@Body body: SignUpBody): User
 
+    @GET("/user")
+    suspend fun getUser(): User
+
     @GET("/user/achievements")
     suspend fun getAchievements(): AchievementsResponse
 
