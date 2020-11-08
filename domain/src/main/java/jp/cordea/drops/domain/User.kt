@@ -9,7 +9,7 @@ class User(
     val id: UserId,
     val name: String,
     val description: String,
-    val imageUrl: String,
+    @Json(name = "image_url") val imageUrl: String,
     val city: String,
     val rank: Int,
     @Json(name = "created_at") val createdAt: LocalDateTime,

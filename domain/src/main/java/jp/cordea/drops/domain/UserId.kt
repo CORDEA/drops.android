@@ -1,3 +1,6 @@
 package jp.cordea.drops.domain
 
-inline class UserId(val id: String)
+import com.squareup.moshi.JsonClass
+
+@JsonClass(generateAdapter = true)
+inline class UserId(val id: Long)
