@@ -32,6 +32,7 @@ class AccountFragment : Fragment(R.layout.account_fragment) {
 
         val adapter = GroupAdapter<GroupieViewHolder>()
         binding.recyclerView.adapter = adapter
+        binding.recyclerView.addItemDecoration(AccountDividerItemDecoration(requireContext()))
 
         lifecycleScope.launch {
             for (event in viewModel.onEvent) {
