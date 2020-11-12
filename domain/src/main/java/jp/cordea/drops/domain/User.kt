@@ -6,7 +6,7 @@ import java.time.LocalDateTime
 
 @JsonClass(generateAdapter = true)
 class User(
-    val id: UserId,
+    @Json(name = "id") internal val _id: Long,
     val name: String,
     val description: String,
     @Json(name = "image_url") val imageUrl: String,
@@ -14,4 +14,6 @@ class User(
     val rank: Int,
     @Json(name = "created_at") val createdAt: LocalDateTime,
     val birthday: LocalDateTime
-)
+) {
+    val id = UserId(_id)
+}
