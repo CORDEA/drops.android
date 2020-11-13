@@ -1,3 +1,3 @@
 package jp.cordea.drops.domain
 
-inline class EmailAddress(val emailAddress: String)
+inline class EmailAddress(val value: String)

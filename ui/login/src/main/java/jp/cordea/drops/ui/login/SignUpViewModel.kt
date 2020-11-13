@@ -4,8 +4,8 @@ import androidx.hilt.lifecycle.ViewModelInject
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
+import jp.cordea.drops.domain.AuthenticationCode
 import jp.cordea.drops.domain.EmailAddress
-import jp.cordea.drops.domain.Password
 import jp.cordea.drops.domain.repository.UserRepository
 import kotlinx.coroutines.channels.Channel
 import kotlinx.coroutines.channels.ReceiveChannel
@@ -28,9 +28,8 @@ class SignUpViewModel @ViewModelInject constructor(
 
     fun onSignUpClick() {
         val code = requireNotNull(code.value)
-        // TODO
         repository
-            .signUp(requireNotNull(emailAddress), Password(code))
+            .signUp(requireNotNull(emailAddress), AuthenticationCode(code))
             .onEach { _onEvent.offer(Event.NavigateToMain) }
             .launchIn(viewModelScope)
     }
