@@ -6,6 +6,7 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.lifecycleScope
 import androidx.navigation.fragment.findNavController
+import androidx.navigation.fragment.navArgs
 import com.google.android.material.transition.MaterialSharedAxis
 import dagger.hilt.android.AndroidEntryPoint
 import jp.cordea.drops.ui.login.SignUpViewModel.Event
@@ -15,6 +16,8 @@ import kotlinx.coroutines.launch
 @AndroidEntryPoint
 class SignUpFragment : Fragment(R.layout.sign_up_fragment) {
     private val viewModel: SignUpViewModel by viewModels()
+
+    private val args: SignUpFragmentArgs by navArgs()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -31,6 +34,7 @@ class SignUpFragment : Fragment(R.layout.sign_up_fragment) {
         val binding = SignUpFragmentBinding.bind(view)
         binding.lifecycleOwner = viewLifecycleOwner
         binding.viewModel = viewModel
+        viewModel.init(args.emailAddress)
 
         lifecycleScope.launch {
             for (event in viewModel.onEvent) {

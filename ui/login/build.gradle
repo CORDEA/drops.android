@@ -27,6 +27,7 @@ android {
 }
 
 dependencies {
+    implementation project(":domain")
     implementation project(":ui:navigation")
     implementation project(":ui:shared")
 
@@ -40,6 +41,7 @@ dependencies {
     implementation Deps.navigationUiKtx
 
     implementation Deps.hiltLifecycleViewModel
+    kapt Deps.hiltCompiler
 
     implementation Deps.dagger
     kapt Deps.daggerCompiler
