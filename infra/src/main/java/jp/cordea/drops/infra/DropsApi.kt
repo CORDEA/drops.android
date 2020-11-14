@@ -11,6 +11,11 @@ internal interface DropsApi {
     @POST("/user/new")
     suspend fun signUp(@Body body: SignUpBody): User
 
+    @GET("/user/confirm/{emailAddress}")
+    suspend fun confirmUserExistence(
+        @Path("emailAddress") emailAddress: String
+    ): UserExistenceResponse
+
     @GET("/user")
     suspend fun getUser(): User
 
