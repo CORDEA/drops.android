@@ -50,4 +50,11 @@ dependencies {
 
     implementation Deps.kotlinxCoroutinesCore
     implementation Deps.kotlinxCoroutinesAndroid
+
+    testImplementation Deps.junit
+    testImplementation Deps.coreTesting
+    testImplementation Deps.kotlinxCoroutinesTest
+    testImplementation Deps.mockk
+    testImplementation Deps.striktCore
+    testImplementation Deps.striktMockk
 }
