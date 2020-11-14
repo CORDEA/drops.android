@@ -6,6 +6,7 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.lifecycleScope
 import androidx.navigation.fragment.findNavController
+import androidx.navigation.fragment.navArgs
 import com.google.android.material.transition.MaterialSharedAxis
 import dagger.hilt.android.AndroidEntryPoint
 import jp.cordea.drops.ui.login.LogInViewModel.Event
@@ -15,6 +16,8 @@ import kotlinx.coroutines.launch
 @AndroidEntryPoint
 class LogInFragment : Fragment(R.layout.log_in_fragment) {
     private val viewModel: LogInViewModel by viewModels()
+
+    private val args: LogInFragmentArgs by navArgs()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -31,6 +34,7 @@ class LogInFragment : Fragment(R.layout.log_in_fragment) {
         val binding = LogInFragmentBinding.bind(view)
         binding.lifecycleOwner = viewLifecycleOwner
         binding.viewModel = viewModel
+        viewModel.init(args.emailAddress)
 
         lifecycleScope.launch {
             for (event in viewModel.onEvent) {
